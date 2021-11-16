@@ -1,0 +1,14 @@
+.menu {
+  font-size: 18px;
+  line-height: 21px;
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 25px;
+    }
+
+    @include breakpointsMaxW($bp-768) {
+      margin-bottom: 12px;
+    }
+  }
+}

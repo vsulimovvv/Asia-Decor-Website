@@ -1,0 +1,97 @@
+.partners {
+  padding-bottom: 180px;
+  padding-top: 180px;
+
+  &__top {
+    margin-bottom: 88px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .arrow {
+      width: 130px;
+      height: 54px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .arrow-next,
+      .arrow-prev {
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        border: 1px solid rgb(233, 229, 229);
+        position: relative;
+
+        &::after {
+          @include pseudoElDefault();
+          top: 50%;
+          left: 50%;
+          width: 24px;
+          height: 24px;
+          transform: translate(-50%, -50%);
+          transition: 150ms ease;
+        }
+
+        @include breakpointsMaxW($bp-768) {
+          display: none;
+        }
+      }
+
+      .arrow-next {
+        &::after {
+          @include maskImage(url('../images/icons/chevron-right.svg'), 24px);
+          background-color: var(--color-dark);
+        }
+      }
+
+      .arrow-prev {
+        &::after {
+          @include maskImage(url('../images/icons/chevron-left.svg'), 24px);
+          background-color: var(--color-dark);
+        }
+      }
+
+      // 
+      .arrow-next,
+      .arrow-prev {
+        transition: 150ms ease-in;
+      }
+
+      .arrow-prev {
+        &:hover {
+          transform: translateX(-3px);
+          background-color: var(--color-accent);
+
+          &::after {
+            background-color: #fff;
+          }
+        }
+      }
+
+      .arrow-next {
+        &:hover {
+          transform: translateX(3px);
+          background-color: var(--color-accent);
+
+          &::after {
+            background-color: #fff;
+          }
+        }
+      }
+    }
+  }
+
+  &__slider {
+    height: 100px;
+  }
+
+  .swiper-pagination {
+    display: none;
+
+    @include breakpointsMaxW($bp-768) {
+      display: block;
+    }
+  }
+}

@@ -127,3 +127,75 @@ body {
     height: 37px;
   }
 }
+
+
+
+// ! Arrow Animation
+// .arrow-next,
+// .arrow-prev {
+//   transition: 150ms ease-in;
+// }
+
+// .arrow-prev {
+//   &:hover {
+//     transform: translateX(-3px);
+//     background-color: var(--color-accent);
+//     &::after{
+//       background-color: #fff;
+//     }
+//   }
+// }
+
+// .arrow-next {
+//   &:hover {
+//     transform: translateX(3px);
+//     background-color: var(--color-accent);
+//   }
+// }
+
+
+
+// !
+
+// .arrow-next,
+// .arrow-prev {
+//   position: absolute;
+//   width: 54px;
+//   height: 54px;
+
+//   top: 50%;
+//   transform: translateY(-50%);
+//   border-radius: 50%;
+//   border: 1px solid rgb(233, 229, 229);
+
+//   &::after {
+//     @include pseudoElDefault();
+//     top: 50%;
+//     left: 50%;
+//     width: 24px;
+//     height: 24px;
+//     transform: translate(-50%, -50%);
+//   }
+
+//   @include breakpointsMaxW(1600px) {
+//     display: none;
+//   }
+// }
+
+// .arrow-next {
+//   right: -70px;
+
+//   &::after {
+//     @include maskImage(url('../images/icons/chevron-right.svg'), 24px);
+//     background-color: var(--color-dark);
+//   }
+// }
+
+// .arrow-prev {
+//   left: -70px;
+
+//   &::after {
+//     @include maskImage(url('../images/icons/chevron-left.svg'), 24px);
+//     background-color: var(--color-dark);
+//   }
+// }
