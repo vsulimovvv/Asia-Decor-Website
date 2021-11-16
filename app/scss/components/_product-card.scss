@@ -1,13 +1,35 @@
 .product-card {
+  max-width: 336px;
   width: 100%;
+  position: relative;
+  // height: 430px;
+
+  // @include breakpointsMaxW($bp-container) {
+  //   height: calc(182px + (430 - 182) * ((100vw - 320px) / (1225 - 320)));
+  // }
+
+  &__badge {
+    position: absolute;
+    top: 7px;
+    left: 16px;
+    color: var(--color-white);
+    background-color: var(--color-accent);
+    transform: rotate(-90deg);
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    padding: 7px;
+  }
 
   &__img {
     width: 100%;
     margin-bottom: 28px;
     height: 381px;
 
-    @include breakpointsMaxW($bp-container) {
+    @include breakpointsMaxW(1200px) {
       height: calc(160px + (381 - 160) * ((100vw - 320px) / (1225 - 320)));
+      margin-bottom: calc(8px + (28 - 8) * ((100vw - 320px) / (1225 - 320)));
     }
 
     img {
