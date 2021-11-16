@@ -1,0 +1,22 @@
+.product-card {
+  width: 100%;
+
+  &__img {
+    width: 100%;
+    margin-bottom: 28px;
+    height: 381px;
+
+    @include breakpointsMaxW($bp-container) {
+      height: calc(160px + (381 - 160) * ((100vw - 320px) / (1225 - 320)));
+    }
+
+    img {
+      @include img(cover);
+    }
+  }
+
+  &__title {
+    font-size: 18px;
+    line-height: 21px;
+  }
+}

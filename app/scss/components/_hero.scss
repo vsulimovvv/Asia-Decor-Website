@@ -1,0 +1,190 @@
+.hero {
+  font-family: 'Raleway', sans-serif;
+  background-color: var(--color-dark);
+  color: var(--color-white);
+
+
+  // @include backgroundImage2(url('../images/content/hero/hero-img.jpg'), right, 32%, 43%, 80%);
+
+  background-image: url('../images/content/hero/hero-img.jpg');
+  background-repeat: no-repeat;
+  background-size: 40%;
+  background-position: right center;
+
+  @include breakpointsMaxW($bp-container) {
+    background-size: contain;
+  }
+
+  &__offer {
+    max-width: 790px;
+
+    @include breakpointsMaxW($bp-container) {
+      backdrop-filter: blur(4px);
+      // background-color: var(--color-dark);
+      background-color: rgba(66, 64, 71, 0.7);
+      padding: 40px;
+    }
+
+    @include breakpointsMaxW($bp-768) {
+      padding: 20px;
+
+      // box-shadow: 0px 0.5em 1.5em rgba(255, 255, 255, 0.3);
+      filter: drop-shadow(0px 0.5em 1.5em rgba(255, 255, 255, 0.3));
+      filter: drop-shadow(0px 0.5em 1.5em rgba(0, 0, 0, 0.3));
+    }
+
+    @include breakpointsMaxW($bp-420) {
+      padding: 10px;
+    }
+  }
+
+  &__wrapper {
+    height: 100%;
+    width: 100%;
+    height: 933px;
+
+    @include breakpointsMaxW($bp-container) {
+      height: 700px;
+    }
+
+    @include breakpointsMaxW($bp-991) {
+      height: calc(650px + (700 - 650) * ((100vw - 320px) / (1225 - 320)));
+    }
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+
+  &__title {
+    font-weight: 500;
+    font-size: 67px;
+    margin-bottom: 55px;
+    letter-spacing: 0.01em;
+    line-height: 79px;
+
+    @include breakpointsMaxW($bp-container) {
+      font-size: 50px;
+      line-height: 1.25;
+    }
+
+    @include breakpointsMaxW($bp-991) {
+      font-size: calc(32px + (67 - 32) * ((100vw - 320px) / (1225 - 320)));
+    }
+  }
+
+  &__btn {
+    margin-bottom: 130px;
+    margin-left: 5px;
+    position: relative;
+    border-radius: 5px;
+    transition: 350ms ease;
+
+    &::after {
+      position: absolute;
+      content: '';
+      width: 0;
+      height: 8px;
+      opacity: 0.3;
+      background: var(--color-accent);
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-6px);
+      border-radius: 50%;
+      opacity: 0;
+      transition: 350ms ease;
+    }
+
+    &:hover {
+      transform: translateY(-6px);
+      background-color: darken(#bc1d4a, 3%);
+
+      &::after {
+        opacity: 0.25;
+        width: 90%;
+        transform: translateX(-50%) translateY(0);
+      }
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+
+    @include breakpointsMaxW($bp-container) {
+      margin-left: 0;
+    }
+
+    @include breakpointsMaxW($bp-768) {
+      margin-bottom: 40px;
+    }
+
+    @include breakpointsMaxW($bp-420) {}
+  }
+
+  &__brands {
+    max-width: 405px;
+    font-size: 18px;
+    letter-spacing: -0.035em;
+
+    @include breakpointsMaxW($bp-container) {
+      line-height: 14px;
+      font-size: calc(12px + (18 - 12) * ((100vw - 320px) / (1225 - 320)));
+    }
+
+    .brands {
+      &__text {
+        display: inline-block;
+        margin-bottom: 15px;
+      }
+
+      &__list {
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        gap: 22px;
+        align-items: center;
+      }
+
+      &__item {
+        width: 100%;
+        min-height: 20px;
+        height: auto;
+
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        &--blum {
+          background-image: url('../images/content/brands/1.svg');
+          width: 100px;
+          height: 50px;
+
+          @include breakpointsMaxW($bp-container) {
+            width: calc(60px + (100 - 60) * ((100vw - 320px) / (1225 - 320)));
+          }
+        }
+
+        &--hafele {
+          background-image: url('../images/content/brands/2.svg');
+          width: 112px;
+          height: 20px;
+
+          @include breakpointsMaxW($bp-container) {
+            width: calc(69px + (112 - 69) * ((100vw - 320px) / (1225 - 320)));
+          }
+        }
+
+        &--salice {
+          background-image: url('../images/content/brands/3.svg');
+          width: 147px;
+          height: 88px;
+
+          @include breakpointsMaxW($bp-container) {
+            width: calc(90px + (147 - 90) * ((100vw - 320px) / (1225 - 320)));
+          }
+        }
+      }
+    }
+  }
+}

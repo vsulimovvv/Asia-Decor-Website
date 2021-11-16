@@ -1,0 +1,135 @@
+.services {
+  padding-bottom: 180px;
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1fr minmax(auto, 585px);
+    gap: 200px;
+
+    @include breakpointsMaxW($bp-1200) {
+      grid-template-columns: 1fr minmax(auto, 485px);
+      gap: 50px;
+      align-items: center;
+    }
+
+    @include breakpointsMaxW($bp-991) {
+      grid-template-columns: 1fr;
+    }
+
+    @include breakpointsMaxW($bp-768) {
+      gap: 35px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 100px;
+
+    @include breakpointsMaxW($bp-container) {
+      margin-bottom: calc(37px + (100 - 37) * ((100vw - 320px) / (1225 - 320)));
+    }
+  }
+
+  &__name {
+    display: block;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    margin-bottom: 20px;
+
+    @include breakpointsMaxW($bp-576) {
+      margin-bottom: 14px;
+      font-size: 20px;
+      line-height: 23px;
+    }
+  }
+
+  &__left {
+    @include breakpointsMaxW($bp-991) {
+      max-width: 578px;
+      margin: 0 auto;
+    }
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: minmax(auto, 240px) minmax(auto, 286px);
+    column-gap: 120px;
+    row-gap: 118px;
+    justify-content: space-between;
+
+    @include breakpointsMaxW($bp-container) {
+      gap: 50px;
+    }
+
+    @include breakpointsMaxW($bp-768) {
+      gap: 30px;
+    }
+
+    @include breakpointsMaxW($bp-576) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__item {
+    padding-top: 68px;
+    position: relative;
+
+    @include breakpointsMaxW($bp-576) {
+      padding-top: 60px;
+    }
+
+    &::after {
+      @include pseudoElDefault();
+      width: 34px;
+      height: 34px;
+      top: 0;
+      left: 0;
+    }
+
+    &--saw {
+      &::after {
+        @include maskImage(url('../images/icons/saw.svg'), contain);
+        background-color: var(--color-accent);
+      }
+    }
+
+    &--tinting {
+      &::after {
+        @include maskImage(url('../images/icons/tinting.svg'), contain);
+        background-color: var(--color-accent);
+      }
+    }
+
+    &--loader {
+      &::after {
+        @include maskImage(url('../images/icons/loader.svg'), contain);
+        background-color: var(--color-accent);
+      }
+    }
+
+    &--delivery {
+      &::after {
+        @include maskImage(url('../images/icons/delivery.svg'), contain);
+        background-color: var(--color-accent);
+      }
+    }
+  }
+
+  &__preview {
+    width: 100%;
+    height: 640px;
+
+    img {
+      @include img(cover);
+    }
+
+    @include breakpointsMaxW($bp-991) {
+      height: calc(258px + (640 - 258) * ((100vw - 320px) / (1225 - 320)));
+    }
+
+    @include breakpointsMaxW($bp-991) {
+      max-width: 578px;
+      margin: 0 auto;
+    }
+  }
+}

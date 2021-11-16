@@ -1,0 +1,18 @@
+.main-menu {
+  display: flex;
+
+  @include breakpointsMaxW($bp-container) {
+    display: none;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 59px;
+    }
+  }
+
+  &__link {
+    font-size: 18px;
+    line-height: 21px;
+  }
+}

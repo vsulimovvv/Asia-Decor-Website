@@ -1,0 +1,114 @@
+.about {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  padding-top: 180px;
+
+  @include breakpointsMaxW($bp-991) {
+    .container {
+      padding: 0;
+    }
+
+  }
+
+  @include breakpointsMaxW($bp-768) {
+    padding-top: 48px;
+  }
+
+  &__wrapper {}
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr minmax(auto, 580px);
+    min-height: 370px;
+
+    @include breakpointsMaxW($bp-container) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include breakpointsMaxW($bp-991) {
+      grid-template-columns: 1fr;
+      min-height: auto;
+
+    }
+
+    &--reverse {
+
+      .about__info {
+        order: 1;
+        background-color: var(--color-accent);
+        color: var(--color-white);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-right: 0;
+        padding-bottom: 0;
+
+        @include breakpointsMaxW($bp-991) {
+          padding: 36px 16px;
+        }
+      }
+
+      .about__text {
+        max-width: 430px;
+
+        @include breakpointsMaxW($bp-991) {
+          max-width: 100%;
+        }
+      }
+
+      .about__preview {
+        @include breakpointsMaxW($bp-991) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__title {
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 42px;
+    margin-bottom: 48px;
+
+    @include breakpointsMaxW($bp-991) {
+      margin-bottom: calc(12px + (48 - 12) * ((100vw - 320px) / (1225 - 320)));
+    }
+  }
+
+  &__info {
+    max-width: 780px;
+    padding-right: 60px;
+    padding-bottom: 20px;
+
+    @include breakpointsMaxW($bp-991) {
+      max-width: 100%;
+      padding: 36px 16px;
+    }
+  }
+
+  &__text {
+    font-size: 18px;
+    line-height: 26px;
+
+    @include breakpointsMaxW($bp-991) {
+      font-size: 14px;
+      line-height: 1.45;
+    }
+  }
+
+  &__preview {
+    width: 100%;
+    height: 100%;
+
+    img {
+      @include img(cover);
+    }
+
+
+    @include breakpointsMaxW($bp-991) {
+      height: calc(203px + (370 - 203) * ((100vw - 320px) / (1225 - 320)));
+    }
+  }
+}

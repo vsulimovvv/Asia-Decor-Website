@@ -1,0 +1,18 @@
+@import 'libs';
+@import 'reset';
+@import 'vars';
+@import 'mixins';
+@import 'fonts';
+@import 'global';
+
+@import './animations';
+@import './components/header.scss';
+@import './components/footer';
+@import './components/main-menu';
+@import './components/phone-box';
+@import './components/hero';
+@import './components/productions';
+@import './components/product-card';
+@import './components/services';
+@import './components/advantages';
+@import './components/about-section';

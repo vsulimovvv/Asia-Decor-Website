@@ -1,0 +1,57 @@
+.header {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  padding-top: 28px;
+  padding-bottom: 20px;
+  position: relative;
+  width: 100%;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  &__wrapper {
+    max-width: 1240px;
+    // margin: 0 auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+  }
+
+  &__menu {
+    margin-left: auto;
+    margin-right: 100px;
+
+    // @include breakpointsMaxW(1465px) {
+    //   display: none;
+    // }
+  }
+
+  &__tools {
+    margin-left: auto;
+  }
+
+  &__search {
+    width: 24px;
+    height: 24px;
+
+    // @include maskImage(url('../images/sprite.svg#search-icon'), cover);
+
+    @include backgroundImage(url('../images/icons/search-icon.svg'), cover);
+
+    margin-right: 50px;
+  }
+
+  &__toggle {
+    width: 24px;
+    height: 24px;
+
+    // @include maskImage(url('../images/sprite.svg#search-icon'), cover);
+
+    @include backgroundImage(url('../images/icons/menu-icon.svg'), cover);
+  }
+
+  &__phone-box {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
