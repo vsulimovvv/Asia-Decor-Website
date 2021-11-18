@@ -101,6 +101,7 @@ body {
 
 // Buttons Default Classes
 .btn {
+  display: inline-block;
   padding: 26px 90px;
   font-weight: 500;
   font-size: 18px;
@@ -111,6 +112,56 @@ body {
 
   background-color: var(--color-accent);
   color: var(--color-white);
+
+  &--link {
+    padding: 0;
+    background-color: transparent;
+    color: var(--color-accent);
+    font-size: 16px;
+    line-height: 19px;
+    position: relative;
+    transition: 150ms ease-in;
+    padding-right: 21px;
+
+    &:hover {
+      &::after {
+        transform: translateY(-50%) translateX(3px);
+      }
+
+      // &::before {
+      //   transform: scale(1);
+      // }
+    }
+
+    &::after,
+    &::before {
+      @include pseudoElDefault();
+
+      transition: 150ms ease-in;
+
+    }
+
+    &::after {
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      @include maskImage(url('../images/sprite.svg#chevron-right'), cover);
+      background-color: var(--color-accent);
+      width: 10px;
+      height: 20px;
+    }
+
+    &::before {
+      left: 0;
+      bottom: -3px;
+      height: 1px;
+      width: 82%;
+      background-color: var(--color-accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: 150ms ease-in;
+    }
+  }
 }
 
 .logo {

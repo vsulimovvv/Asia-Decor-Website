@@ -90,6 +90,14 @@
     margin-bottom: 28px;
     font-size: 18px;
     line-height: 27px;
+
+    a {
+      transition: 150ms ease;
+
+      &:hover {
+        color: var(--color-accent);
+      }
+    }
   }
 
   &__address {

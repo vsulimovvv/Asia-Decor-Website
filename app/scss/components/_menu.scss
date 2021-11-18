@@ -3,6 +3,8 @@
   line-height: 21px;
 
   &__item {
+    overflow: hidden;
+
     &:not(:last-child) {
       margin-bottom: 25px;
     }
@@ -10,5 +12,35 @@
     @include breakpointsMaxW($bp-768) {
       margin-bottom: 12px;
     }
+  }
+
+  &__link {
+    overflow: hidden;
+    padding: 20px;
+    height: 1em;
+    color: var(--color-white);
+    font-weight: 400;
+
+    span {
+      position: relative;
+      display: inline-block;
+      transition: 300ms ease;
+
+      &::before {
+        color: var(--color-accent);
+        position: absolute;
+        top: 100%;
+        content: attr(data-hover);
+        font-weight: 800;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    &:hover {
+      span {
+        transform: translateY(-100%);
+      }
+    }
+
   }
 }

@@ -1,0 +1,94 @@
+.partners-page {
+  margin-bottom: 150px;
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+
+    @include breakpointsMaxW($bp-991) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpointsMaxW($bp-768) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__title {
+    margin-bottom: 48px;
+    font-size: 48px;
+    line-height: 56px;
+  }
+
+  &__item {
+    padding: 110px 40px 40px 40px;
+    position: relative;
+    font-size: 16px;
+    line-height: 1.5;
+    border: 1px solid #ededed;
+    max-width: 458px;
+
+    @include breakpointsMaxW($bp-container) {
+      padding: calc(20px + (40 - 20) * ((100vw - 320px) / (1225 - 320)));
+      padding-top: calc(90px + (110 - 90) * ((100vw - 320px) / (1225 - 320)));
+    }
+
+    @include breakpointsMaxW($bp-768) {
+      justify-self: center;
+    }
+
+    &:hover {
+      &::after {
+        filter: opacity(100%);
+      }
+
+      .partners-page__btn {
+        &::before {
+          transform: scale(1);
+        }
+      }
+    }
+
+    &::after {
+      @include pseudoElDefault();
+      top: 32px;
+      left: 40px;
+
+
+      filter: opacity(60%);
+      width: 200px;
+      height: 40px;
+      transition: 150ms ease-in;
+    }
+
+    &--swiss-krono {
+      &::after {
+        @include backgroundImage(url('../images/icons/partners-logo-1.svg'), contain);
+      }
+    }
+
+    &--hafele {
+      &::after {
+        @include backgroundImage(url('../images/icons/partners-logo-2.svg'), contain);
+      }
+    }
+
+    &--krono-span {
+      &::after {
+        @include backgroundImage(url('../images/icons/partners-logo-3.svg'), contain);
+      }
+    }
+  }
+
+  &__text {
+    margin-bottom: 55px;
+    max-width: 310px;
+
+    @include breakpointsMaxW($bp-container) {
+      margin-bottom: calc(30px + (55 - 30) * ((100vw - 320px) / (1225 - 320)));
+    }
+  }
+
+  &__btn {}
+}
