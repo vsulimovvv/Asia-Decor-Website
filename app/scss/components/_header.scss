@@ -33,6 +33,9 @@
     width: 24px;
     height: 24px;
 
+
+    z-index: 10000;
+
     // @include maskImage(url('../images/sprite.svg#search-icon'), cover);
 
     @include backgroundImage(url('../images/icons/search-icon.svg'), cover);
@@ -43,6 +46,8 @@
   &__toggle {
     width: 24px;
     height: 24px;
+    z-index: 10;
+
 
     // @include maskImage(url('../images/sprite.svg#search-icon'), cover);
 

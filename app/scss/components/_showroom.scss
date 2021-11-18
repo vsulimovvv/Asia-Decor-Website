@@ -1,0 +1,45 @@
+.showroom {
+  max-width: 702px;
+  border: 1px solid rgba(237, 237, 237);
+
+  &__img {
+    width: 100%;
+    height: 376px;
+
+    img {
+      @include img(cover);
+    }
+
+    @include breakpointsMaxW($bp-container) {
+      height: calc(200px + (376 - 200) * ((100vw - 320px) / (1225 - 320)));
+    }
+  }
+
+  &__title {
+    font-size: 24px;
+    line-height: 1.5;
+    margin-bottom: 22px;
+  }
+
+  &__location {
+    font-size: 16px;
+    line-height: 1.5;
+    padding-left: 30px;
+    position: relative;
+
+    &::after {
+      @include pseudoElDefault();
+      width: 18px;
+      height: 18px;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      @include maskImage(url('../images/sprite.svg#map'), cover);
+      background-color: var(--color-dark);
+    }
+  }
+
+  &__info {
+    padding: 29px 30px 37px;
+  }
+}
