@@ -1,0 +1,115 @@
+.news-single {
+  &__wrapper {
+    display: grid;
+    grid-template-columns: minmax(auto, 828px) 458px;
+    gap: 150px;
+
+    @include breakpointsMaxW($bp-container) {
+      gap: calc(30px + (100 - 30) * ((100vw - 320px) / (1225 - 320)));
+    }
+
+    @include breakpointsMaxW(1200px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__title {
+    margin-bottom: 25px;
+  }
+
+  &__img {
+    max-width: 100%;
+    height: 482px;
+    margin-bottom: 40px;
+
+    @include breakpointsMaxW(1200px) {
+      height: calc(200px + (482 - 200) * ((100vw - 320px) / (1225 - 320)));
+    }
+
+    img {
+      @include img(cover);
+    }
+  }
+
+  &__text-box {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .text-box {
+    max-width: 713px;
+
+
+    &__title {
+      margin-bottom: 32px;
+      font-size: 24px;
+      line-height: 36px;
+    }
+
+    &__list {}
+
+    &__item {
+      font-size: 18px;
+      line-height: 1.5;
+      padding-left: 25px;
+      position: relative;
+
+      &:not(:last-child) {
+        margin-bottom: 24px;
+      }
+
+      &::after {
+        @include pseudoElDefault();
+        width: 3px;
+        height: 3px;
+        top: 3px;
+        left: 3px;
+        background-color: var(--color-dark);
+      }
+    }
+  }
+
+  .quote {
+    max-width: 685px;
+    padding-left: 75px;
+    position: relative;
+    font-size: 18px;
+    line-height: 1.5;
+    font-style: italic;
+
+    &::after {
+      @include pseudoElDefault();
+      left: 15px;
+      top: 0;
+      @include maskImage(url('../images/sprite.svg#quote'), cover);
+      background-color: var(--color-accent);
+      width: 25px;
+      height: 20px;
+    }
+  }
+
+  &__last-news {
+    flex-shrink: 0;
+
+
+    @include breakpointsMaxW(1200px) {
+      .last-news__list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+      }
+    }
+
+    @include breakpointsMaxW($bp-991) {
+      .last-news__list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @include breakpointsMaxW($bp-768) {
+      .last-news__list {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}

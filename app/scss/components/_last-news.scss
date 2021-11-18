@@ -1,0 +1,35 @@
+.last-news {
+  &__title {
+    font-size: 24px;
+    line-height: 28px;
+    margin-bottom: 44px;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 32px;
+    }
+  }
+
+  .news-card__img {
+    height: 270px;
+
+    @include breakpointsMaxW($bp-container) {
+      height: calc(200px + (270 - 200) * ((100vw - 320px) / (1225 - 320)));
+    }
+
+    img {
+      @include img(cover);
+    }
+  }
+
+  .news-card__text {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+
+  .news-card__info {
+    padding: 25px 21px 24px;
+  }
+}

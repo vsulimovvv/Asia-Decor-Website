@@ -1,0 +1,65 @@
+.pagination {
+  max-width: 367px;
+
+  @include breakpointsMaxW(1200px) {
+    max-width: calc(270px + (367 - 270) * ((100vw - 320px) / (1225 - 320)));
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  &__item {
+    &:first-child {
+      margin-right: auto;
+    }
+
+    &:last-child {
+      margin-left: auto;
+    }
+  }
+
+  &__link {
+    font-size: 16px;
+    line-height: 1.5;
+    display: block;
+    width: 10px;
+    height: 24px;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    transition: 150ms ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include breakpointsMaxW(1200px) {
+      height: calc(40px + (60 - 40) * ((100vw - 320px) / (1225 - 320)));
+      width: calc(40px + (60 - 40) * ((100vw - 320px) / (1225 - 320)));
+    }
+
+    &:hover,
+    &.active {
+      background-color: var(--color-accent);
+      color: var(--color-white);
+    }
+
+    &--arrow-prev {
+      width: 20px;
+      height: 20px;
+
+      @include maskImage(url('../images/sprite.svg#chevron-left'), cover);
+      background-color: var(--color-dark);
+    }
+
+    &--arrow-next {
+      width: 20px;
+      height: 20px;
+
+      @include maskImage(url('../images/sprite.svg#chevron-right'), cover);
+      background-color: var(--color-dark);
+    }
+  }
+}
