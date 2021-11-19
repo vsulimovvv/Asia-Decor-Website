@@ -204,49 +204,75 @@ body {
 //   }
 // }
 
+.arrow {
+  width: 130px;
+  height: 54px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
+  .arrow-next,
+  .arrow-prev {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    border: 1px solid rgb(233, 229, 229);
+    position: relative;
 
-// !
+    &::after {
+      @include pseudoElDefault();
+      top: 50%;
+      left: 50%;
+      width: 24px;
+      height: 24px;
+      transform: translate(-50%, -50%);
+      transition: 150ms ease;
+    }
 
-// .arrow-next,
-// .arrow-prev {
-//   position: absolute;
-//   width: 54px;
-//   height: 54px;
+    @include breakpointsMaxW($bp-768) {
+      display: none;
+    }
+  }
 
-//   top: 50%;
-//   transform: translateY(-50%);
-//   border-radius: 50%;
-//   border: 1px solid rgb(233, 229, 229);
+  .arrow-next {
+    &::after {
+      @include maskImage(url('../images/icons/chevron-right.svg'), 24px);
+      background-color: var(--color-dark);
+    }
+  }
 
-//   &::after {
-//     @include pseudoElDefault();
-//     top: 50%;
-//     left: 50%;
-//     width: 24px;
-//     height: 24px;
-//     transform: translate(-50%, -50%);
-//   }
+  .arrow-prev {
+    &::after {
+      @include maskImage(url('../images/icons/chevron-left.svg'), 24px);
+      background-color: var(--color-dark);
+    }
+  }
 
-//   @include breakpointsMaxW(1600px) {
-//     display: none;
-//   }
-// }
+  // 
+  .arrow-next,
+  .arrow-prev {
+    transition: 150ms ease-in;
+  }
 
-// .arrow-next {
-//   right: -70px;
+  .arrow-prev {
+    &:hover {
+      transform: translateX(-3px);
+      background-color: var(--color-accent);
 
-//   &::after {
-//     @include maskImage(url('../images/icons/chevron-right.svg'), 24px);
-//     background-color: var(--color-dark);
-//   }
-// }
+      &::after {
+        background-color: #fff;
+      }
+    }
+  }
 
-// .arrow-prev {
-//   left: -70px;
+  .arrow-next {
+    &:hover {
+      transform: translateX(3px);
+      background-color: var(--color-accent);
 
-//   &::after {
-//     @include maskImage(url('../images/icons/chevron-left.svg'), 24px);
-//     background-color: var(--color-dark);
-//   }
-// }
+      &::after {
+        background-color: #fff;
+      }
+    }
+  }
+}

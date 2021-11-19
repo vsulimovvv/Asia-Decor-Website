@@ -8,9 +8,9 @@
   line-height: 1.25;
   background-color: var(--color-dropdown);
 
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-10px);
+  // opacity: 0;
+  // visibility: hidden;
+  // transform: translateY(-10px);
 
   &.active {
     opacity: 1;
@@ -21,6 +21,10 @@
   &__container {
     display: grid;
     grid-template-columns: 222px 1fr;
+
+    @include breakpointsMaxW($bp-991) {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__left {

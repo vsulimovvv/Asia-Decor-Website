@@ -2,16 +2,48 @@
   display: flex;
   align-items: center;
 
-  @include breakpointsMaxW($bp-container) {
-    display: none;
-  }
-
   &__item {
     &:not(:last-child) {
       margin-right: 38px;
+
+      @include breakpointsMaxW($bp-container) {
+        margin-right: 18px;
+      }
     }
 
     overflow: hidden;
+
+    &.active {
+      .filter-box__drop {
+        opacity: 1;
+        max-height: 100px;
+      }
+    }
+
+    .filter-box__drop {
+      // display: none;
+
+      max-height: 0;
+      overflow: hidden;
+      will-change: max-height;
+      opacity: 0;
+    }
+
+    .filter-box__item {
+      &.active {
+        ul {
+          opacity: 1;
+          max-height: 100px;
+        }
+      }
+
+      ul {
+        max-height: 0;
+        overflow: hidden;
+        will-change: max-height;
+        opacity: 0;
+      }
+    }
   }
 
   &__link {

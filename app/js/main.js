@@ -118,6 +118,38 @@ window.addEventListener('DOMContentLoaded', () => {
   };
   sliderGroup3();
 
+  (function verticalSlider() {
+    const slider = document.querySelector('.slider-main');
+    const sliderNav = document.querySelector('.slider-nav');
+    const nextBtn = document.querySelector('.arrow-next');
+    const prevBtn = document.querySelector('.arrow-prev');
+    let mySwiperNav = new Swiper('.slider-thumbs__nav', {
+      slidesPerView: 4,
+      spaceBetween: 10,
+      // loop: true,
+      direction: 'horizontal',
+      watchSlidesVisibility: true,
+      watchSlidesProgress: true,
+      loopedSlides: 4,
+      freeMode: true,
+   
+      breakpoints: {
+        320: {
+          slidesPerView: 3,
+        },
+      }
+    });
+    let mySwiper = new Swiper('.slider-thumbs__main', {
+      spaceBetween: 10,
+      loopedSlides: 4,   navigation: {
+        nextEl: nextBtn,
+        prevEl: prevBtn,
+      },
+      thumbs: {
+        swiper: mySwiperNav
+      }
+    });
+  }());
 
   // const menuSearchBox = document.querySelector('.menu-search');
   // const menuSearchToggle = document.querySelector('.header__search');
@@ -195,60 +227,83 @@ window.addEventListener('DOMContentLoaded', () => {
   showDropdown('.main-menu__link--catalog', '.dropdown-catalog');
 
   // Tab
-  function tabsProducts(
-    headerSelector,
-    tabSelector,
-    contentSelector,
-    activeClass
-  ) {
-    const header = document.querySelectorAll(headerSelector);
-    const tab = document.querySelectorAll(tabSelector);
-    const content = document.querySelectorAll(contentSelector);
+  // function tabsProducts(
+  //   headerSelector,
+  //   tabSelector,
+  //   contentSelector,
+  //   activeClass
+  // ) {
+  //   const header = document.querySelectorAll(headerSelector);
+  //   const tab = document.querySelectorAll(tabSelector);
+  //   const content = document.querySelectorAll(contentSelector);
 
-    if (content && header && tab) {
+  //   if (content && header && tab) {
 
-      hideTabContent();
-      showTabContent();
+  //     hideTabContent();
+  //     showTabContent();
 
-      function hideTabContent() {
-        content.forEach((item) => {
-          item.classList.remove('active');
-        });
-        tab.forEach((item) => {
-          item.classList.remove(activeClass);
-        });
-      }
+  //     function hideTabContent() {
+  //       content.forEach((item) => {
+  //         item.classList.remove('active');
+  //       });
+  //       tab.forEach((item) => {
+  //         item.classList.remove(activeClass);
+  //       });
+  //     }
 
-      function showTabContent(i = 0) {
-        content[i].classList.add('active');
-        tab[i].classList.add(activeClass);
-      }
+  //     function showTabContent(i = 0) {
+  //       content[i].classList.add('active');
+  //       tab[i].classList.add(activeClass);
+  //     }
 
-      header.forEach((item) => {
-        item.addEventListener('click', (e) => {
-          const target = e.target;
-          if (
-            target.classList.contains(tabSelector.replace(/\./, '')) ||
-            target.classList.parentNode.contains(tabSelector.replace(/\./, ''))
-          ) {
-            tab.forEach((item, i) => {
-              if (target == item || target.parentNode == item) {
-                hideTabContent();
-                showTabContent(i);
-              }
-            });
-          }
-        });
+  //     header.forEach((item) => {
+  //       item.addEventListener('click', (e) => {
+  //         const target = e.target;
+  //         if (
+  //           target.classList.contains(tabSelector.replace(/\./, '')) ||
+  //           target.classList.parentNode.contains(tabSelector.replace(/\./, ''))
+  //         ) {
+  //           tab.forEach((item, i) => {
+  //             if (target == item || target.parentNode == item) {
+  //               hideTabContent();
+  //               showTabContent(i);
+  //             }
+  //           });
+  //         }
+  //       });
+  //     });
+  //   }
+  // };
+
+  // tabsProducts(
+  //   '.main-menu__dropdown',
+  //   '.dropdown-catalog__item',
+  //   '.submenu__list',
+  //   'dropdown-catalog__item--active'
+  // );
+
+
+  const toggleFullSidebox = (accordion, accordionContent) => {
+    const filters = document.querySelectorAll(accordion);
+
+    filters.forEach(el => {
+      el.addEventListener('click', e => {
+        const target = e.currentTarget;
+        const content = target.querySelector(accordionContent);
+
+        target.classList.toggle('active');
+
+        if (target.classList.contains('active')) {
+          content.style.maxHeight = content.scrollHeight + 'px';
+        } else {
+          content.style.maxHeight = null;
+        }
       });
-    }
+    });
   };
-
-  tabsProducts(
-    '.main-menu__dropdown',
-    '.dropdown-catalog__item',
-    '.submenu__list',
-    'dropdown-catalog__item--active'
-  );
+  toggleFullSidebox('.main-menu__item', '.filter-box__drop');
+  // toggleFullSidebox('.process-box', '.process-box__list');
+  // toggleFullSidebox('.menu-box', '.menu-box__drop');
 });
 
 // 
