@@ -340,82 +340,69 @@
   </div>
 </header>
     <main class="main">
-      <section class="single-showroom">
+      <section class="contacts">
   <div class="container">
-    <div class="single-showroom__wrapper">
-      <div class="single-showroom__top">
-        <div class="single-showroom__offer">
-          <h1 class="single-showroom__title">Шоурум</h1>
+    <div class="contacts__wrapper">
+      <div class="contacts__top">
 
-          <div class="single-showroom__text">
-            <p>
-              Добро пожаловать в Showroom по улице Паркент, 1. Здесь вы найдёте большой ассортимент офисной мебели и
-              сможет
-              заказть её, предваоительно получив консультации наших специалистов.
-            </p>
+        <div class="contacts__offer">
+          <h1 class="contacts__title">Контакты</h1>
+          <div class="contacts__text">
+            <p>Если у вас возникли вопросы? Наши специалисты будут рады на них ответить и предоставить полную и
+              исчерпывыающую
+              информацию касательно наших товаров и услуг.</p>
           </div>
-          <div class="single-showroom__actions">
-            <a class="single-showroom__link single-showroom__link--tel" href="tel:998909088313">+998 (90) 9088313</a>
 
-            <a class="single-showroom__link single-showroom__link--location" href="#">Узбекистан, Ташкент, Алмазарский
-              район, ул. Широк, 100</a>
+          <div class="contacts__info info">
+            <address class="info__box">
+              <a class="location" href="#">Узбекистан, Ташкент, Алмазарский район, ул. Широк, 100</a>
+            </address>
+            <div class="info__box">
+              <a class="phone" href="tel:998909088313">+998 (90) 9088313</a>
+              <a class="phone" href="tel:+998900548454">+998 (90) 0548454</a>
+              <a class="phone" href="tel:99890900000">+998-90-900-0-00</a>
+            </div>
+            <div class="info__box">
+              <a class="mail" href="mailto:info@asiadecor.uz">info@asiadecor.uz</a>
+            </div>
+            <div class="info__box">
+              <a class="shedule" href="#"><span>пн-пт: 9-18:00</span> <span>сб: выходной</span></a>
+            </div>
           </div>
         </div>
 
-        <div class="single-showroom__map">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d47925.50446848248!2d69.20077794535153!3d41.34487546127975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1z0KPQt9Cx0LXQutC40YHRgtCw0L0sINCi0LDRiNC60LXQvdGCLCDQkNC70LzQsNC30LDRgNGB0LrQuNC5INGA0LDQudC-0L0sINGD0LsuINCo0LjRgNC-0LosIDEwMA!5e0!3m2!1sru!2sru!4v1637358626652!5m2!1sru!2sru"
-            width="600" height="305" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-      </div>
+        <form class="contacts__form form">
+          <h3 class="form__title">Есть вопросы? Мы готовы ответить</h3>
 
-      <div class="single-showroom__slider slider-thumbs">
-        <div class="slider-thumbs__main swiper">
-          <ul class="swiper-wrapper">
-            <li class="swiper-slide">
-              <img src="images/content/news/1.jpg" alt="Слайд №1">
-            </li>
-            <li class="swiper-slide">
-              <img src="images/content/news/1.jpg" alt="Слайд №2">
-            </li>
-            <li class="swiper-slide">
-              <img src="images/content/news/1.jpg" alt="Слайд №3">
-            </li>
-            <li class="swiper-slide">
-              <img src="images/content/news/1.jpg" alt="Слайд №4">
-            </li>
-          </ul>
-        </div>
+          <label class="form__group">
+            <input class="form__input" type="text" placeholder="Ваше имя" name="name" required>
+          </label>
+          <label class="form__group">
+            <input class="form__input" type="email" placeholder="Ваше e-mail" name="mail" required>
+          </label>
+          <label class="form__group">
+            <input class="form__input" type="text" placeholder="Номер телефона" name="phone" required>
+          </label>
 
-        <div class="slider-thumbs__arrow arrow">
-          <button class="arrow-prev" type="button" aria-label="Перейти на предыдущий слайд"></button>
-          <button class="arrow-next" type="button" aria-label="Перейти на следующий слайд"></button>
-        </div>
+          <label>
+            <textarea class="form__input form__input--textarea" name="" id="" placeholder="Сообщнеие"></textarea>
+          </label>
 
-        <div class="slider-thumbs__nav swiper">
-          <ul class="swiper-wrapper">
-            <li class="swiper-slide slider-nav__slide">
-              <img src="images/content/news/1.jpg" alt="Слайд №1">
-            </li>
-            <li class="swiper-slide slider-nav__slide">
-              <img src="images/content/news/1.jpg" alt="Слайд №2">
-            </li>
-            <li class="swiper-slide slider-nav__slide">
-              <img src="images/content/news/1.jpg" alt="Слайд №3">
-            </li>
-            <li class="swiper-slide slider-nav__slide">
-              <img src="images/content/news/1.jpg" alt="Слайд №4">
-            </li>
-            <li class="swiper-slide slider-nav__slide">
-              <img src="images/content/news/1.jpg" alt="Слайд №4">
-            </li>
-            <li class="swiper-slide slider-nav__slide">
-              <img src="images/content/news/1.jpg" alt="Слайд №4">
-            </li>
-          </ul>
-        </div>
+          <div class="form__captcha captcha">
+            <label class="check">
+              <input class="check__input" type="checkbox" required>
+              <span class="check__box"></span>
+            </label>
+          </div>
+
+          <button class="form__btn btn" type="submit">Отправить</button>
+        </form>
       </div>
     </div>
+  </div>
+
+  <div class="contacts__map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2994.7129355760635!2d69.24646211528875!3d41.358592879266716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8d56027b09a7%3A0xf7e3eae2449f6254!2sAsiya%20plast%20show%20room!5e0!3m2!1sru!2sru!4v1637421097484!5m2!1sru!2sru" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
   </div>
 </section>
     </main>

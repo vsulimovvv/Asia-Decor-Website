@@ -62,80 +62,86 @@
     }
   }
 
-  &__arrow {
-    width: 1690px;
-    height: 54px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+  // &__arrow {
+  //   width: 1690px;
+  //   height: 54px;
 
-    .arrow-next,
-    .arrow-prev {
-      width: 54px;
-      height: 54px;
-      border-radius: 50%;
-      border: 1px solid rgb(233, 229, 229);
-      position: relative;
+  //   display: flex;
+  //   justify-content: space-between;
+  //   align-items: center;
 
-      &::after {
-        @include pseudoElDefault();
-        top: 50%;
-        left: 50%;
-        width: 24px;
-        height: 24px;
-        transform: translate(-50%, -50%);
-        transition: 150ms ease;
-      }
+  //   position: absolute;
+  //   left: 50%;
+  //   top: 50%;
+  //   transform: translate(-50%, -50%);
 
-      @include breakpointsMaxW($bp-768) {
-        display: none;
-      }
-    }
+  //   // @include breakpointsMaxW(2920px) {
+  //   //   width: calc(1455 + (1690 - 1455) * ((100vw - 320px) / (1225 - 320)));
+  //   // }
 
-    .arrow-next {
-      &::after {
-        @include maskImage(url('../images/icons/chevron-right.svg'), 24px);
-        background-color: var(--color-dark);
-      }
-    }
+  //   .arrow-next,
+  //   .arrow-prev {
+  //     width: 54px;
+  //     height: 54px;
+  //     border-radius: 50%;
+  //     border: 1px solid rgb(233, 229, 229);
+  //     position: relative;
 
-    .arrow-prev {
-      &::after {
-        @include maskImage(url('../images/icons/chevron-left.svg'), 24px);
-        background-color: var(--color-dark);
-      }
-    }
+  //     &::after {
+  //       @include pseudoElDefault();
+  //       top: 50%;
+  //       left: 50%;
+  //       width: 24px;
+  //       height: 24px;
+  //       transform: translate(-50%, -50%);
+  //       transition: 150ms ease;
+  //     }
 
-    // 
-    .arrow-next,
-    .arrow-prev {
-      transition: 150ms ease-in;
-    }
+  //     @include breakpointsMaxW($bp-container) {
+  //       display: none;
+  //     }
+  //   }
 
-    .arrow-prev {
-      &:hover {
-        transform: translateX(-3px);
-        background-color: var(--color-accent);
+  //   .arrow-next {
+  //     &::after {
+  //       @include maskImage(url('../images/icons/chevron-right.svg'), 24px);
+  //       background-color: var(--color-dark);
+  //     }
+  //   }
 
-        &::after {
-          background-color: #fff;
-        }
-      }
-    }
+  //   .arrow-prev {
+  //     &::after {
+  //       @include maskImage(url('../images/icons/chevron-left.svg'), 24px);
+  //       background-color: var(--color-dark);
+  //     }
+  //   }
 
-    .arrow-next {
-      &:hover {
-        transform: translateX(3px);
-        background-color: var(--color-accent);
+  //   // 
+  //   .arrow-next,
+  //   .arrow-prev {
+  //     transition: 150ms ease-in;
+  //   }
 
-        &::after {
-          background-color: #fff;
-        }
-      }
-    }
-  }
+  //   .arrow-prev {
+  //     &:hover {
+  //       transform: translateX(-3px);
+  //       background-color: var(--color-accent);
+
+  //       &::after {
+  //         background-color: #fff;
+  //       }
+  //     }
+  //   }
+
+  //   .arrow-next {
+  //     &:hover {
+  //       transform: translateX(3px);
+  //       background-color: var(--color-accent);
+
+  //       &::after {
+  //         background-color: #fff;
+  //       }
+  //     }
+  //   }
+  // }
 }

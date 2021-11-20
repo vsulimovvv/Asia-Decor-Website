@@ -1,0 +1,55 @@
+.info {
+  &__box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    &:not(:last-child) {
+      margin-bottom: 27px;
+    }
+
+    a {
+      font-size: 16px;
+      line-height: 1.5;
+      padding-left: 30px;
+      position: relative;
+
+      &::after {
+        @include pseudoElDefault();
+        width: 18px;
+        height: 18px;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+      }
+
+      &.location {
+        &::after {
+          @include maskImage(url('../images/sprite.svg#map'), cover);
+          background-color: var(--color-dark);
+        }
+      }
+
+      &.phone {
+        &::after {
+          @include maskImage(url('../images/sprite.svg#phone-icon'), cover);
+          background-color: var(--color-dark);
+        }
+      }
+
+      &.mail {
+        &::after {
+          @include maskImage(url('../images/sprite.svg#mail'), cover);
+          background-color: var(--color-dark);
+        }
+      }
+
+      .shedule {
+        &::after {
+          @include maskImage(url('../images/sprite.svg#clock'), cover);
+          background-color: var(--color-dark);
+        }
+      }
+    }
+  }
+}

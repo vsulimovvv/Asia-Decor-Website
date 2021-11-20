@@ -1,0 +1,94 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  background-color: #F8F8F8;
+  padding: 40px 39px 45px;
+  font-size: 16px;
+  line-height: 19px;
+
+  @include breakpointsMaxW($bp-container) {
+    padding: calc(20px + (40 - 20) * ((100vw - 320px) / (1225 - 320)));
+  }
+
+  &__title {
+    font-size: 24px;
+    line-height: 28px;
+    margin-bottom: 27px;
+  }
+
+  &__group {
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    display: block;
+    padding: 18px 24px;
+    background-color: var(--color-white);
+
+    &::placeholder {
+      font-size: 16px;
+      line-height: 19px;
+    }
+
+    &--textarea {
+      min-height: 110px;
+      margin-bottom: 23px;
+    }
+
+    @include breakpointsMaxW($bp-768) {
+      padding: 13px 18px;
+    }
+  }
+
+  &__captcha {
+    height: 85px;
+    max-width: 325px;
+    width: 100%;
+    position: relative;
+    margin-bottom: 23px;
+
+    @include backgroundImage(url('../images/captcha.jpg'), contain);
+  }
+
+  &__btn {
+    max-width: 220px;
+    padding-right: 64px;
+    padding-left: 64px;
+  }
+}
+
+.check {
+  overflow: hidden;
+  position: absolute;
+  cursor: pointer;
+  z-index: 10;
+  top: 48%;
+  left: 13px;
+  transform: translateY(-50%);
+  padding-left: 36px;
+
+  width: 29px;
+  height: 29px;
+
+  &__input {
+    position: absolute;
+    appearance: none;
+  }
+
+  &__box {
+    margin-left: -32px;
+    position: absolute;
+    width: 60%;
+    height: 60%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &__input:checked+&__box {
+    @include maskImage(url('../images/sprite.svg#check'), cover);
+    background-color: #4285f4;
+  }
+}
