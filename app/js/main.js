@@ -15,12 +15,23 @@ window.addEventListener('DOMContentLoaded', () => {
   // const mixer = mixitup('.productions__wrapper');
 
   const sliderGroup = () => {
-    const sliderRec = document.querySelector('.productions__slider');
-    const nextBtn = document.querySelector('.arrow-next');
-    const prevBtn = document.querySelector('.arrow-prev');
+    // const sliderRec = document.querySelectorAll('.productions__slider');
 
-    if (sliderRec) {
-      const swiper = new Swiper(sliderRec, {
+    const x = document.getElementsByClassName('slider');
+    for (let i = 0; i < x.length; i++) {
+      const el = x[i];
+      // if (x) {
+
+      const sliderDef = el.getElementsByClassName('productions__slider')[0];
+      const nextBtn = el.getElementsByClassName('arrow-next')[0];
+      const prevBtn = el.getElementsByClassName('arrow-prev')[0];
+
+      console.log(nextBtn)
+
+
+      // const nextBtn = document.querySelector('.arrow-next');
+      // const prevBtn = document.querySelector('.arrow-prev');
+      const swiper = new Swiper(sliderDef, {
         spaceBetween: 29,
         navigation: {
           nextEl: nextBtn,
@@ -44,6 +55,7 @@ window.addEventListener('DOMContentLoaded', () => {
           },
         },
       });
+      // }
     }
   };
   sliderGroup();
@@ -132,7 +144,7 @@ window.addEventListener('DOMContentLoaded', () => {
       watchSlidesProgress: true,
       loopedSlides: 4,
       freeMode: true,
-   
+
       breakpoints: {
         320: {
           slidesPerView: 3,
@@ -141,7 +153,8 @@ window.addEventListener('DOMContentLoaded', () => {
     });
     let mySwiper = new Swiper('.slider-thumbs__main', {
       spaceBetween: 10,
-      loopedSlides: 4,   navigation: {
+      loopedSlides: 4,
+      navigation: {
         nextEl: nextBtn,
         prevEl: prevBtn,
       },
@@ -198,89 +211,36 @@ window.addEventListener('DOMContentLoaded', () => {
   };
   modals();
 
-  function showDropdown(openBtn, modal) {
-    const openBtnEl = document.querySelector(openBtn);
-    const modalEl = document.querySelector(modal);
-    const body = document.querySelector('body');
-    const overlay = document.querySelector('.overlay');
-    const header = document.querySelector('.header');
-    const mainMenu = document.querySelector('.main-menu');
+  // function showDropdown(openBtn, modal) {
+  //   const openBtnEl = document.querySelector(openBtn);
+  //   const modalEl = document.querySelector(modal);
+  //   const body = document.querySelector('body');
+  //   const overlay = document.querySelector('.overlay');
+  //   const header = document.querySelector('.header');
+  //   const mainMenu = document.querySelector('.main-menu');
 
-    if (modalEl) {
-      openBtnEl.addEventListener('click', e => {
-        if (e.target) {
-          e.preventDefault()
-        }
+  //   if (modalEl) {
+  //     openBtnEl.addEventListener('click', e => {
+  //       if (e.target) {
+  //         e.preventDefault()
+  //       }
 
-        modalEl.classList.toggle('active');
-        overlay.classList.toggle('active');
-      });
-
-      overlay.addEventListener('click', e => {
-        overlay.classList.remove('active');
-        modalEl.classList.remove('active');
-      });
-    };
-  };
-
-  showDropdown('.main-menu__link--services', '.dropdown-services');
-  showDropdown('.main-menu__link--catalog', '.dropdown-catalog');
-
-  // Tab
-  // function tabsProducts(
-  //   headerSelector,
-  //   tabSelector,
-  //   contentSelector,
-  //   activeClass
-  // ) {
-  //   const header = document.querySelectorAll(headerSelector);
-  //   const tab = document.querySelectorAll(tabSelector);
-  //   const content = document.querySelectorAll(contentSelector);
-
-  //   if (content && header && tab) {
-
-  //     hideTabContent();
-  //     showTabContent();
-
-  //     function hideTabContent() {
-  //       content.forEach((item) => {
-  //         item.classList.remove('active');
-  //       });
-  //       tab.forEach((item) => {
-  //         item.classList.remove(activeClass);
-  //       });
-  //     }
-
-  //     function showTabContent(i = 0) {
-  //       content[i].classList.add('active');
-  //       tab[i].classList.add(activeClass);
-  //     }
-
-  //     header.forEach((item) => {
-  //       item.addEventListener('click', (e) => {
-  //         const target = e.target;
-  //         if (
-  //           target.classList.contains(tabSelector.replace(/\./, '')) ||
-  //           target.classList.parentNode.contains(tabSelector.replace(/\./, ''))
-  //         ) {
-  //           tab.forEach((item, i) => {
-  //             if (target == item || target.parentNode == item) {
-  //               hideTabContent();
-  //               showTabContent(i);
-  //             }
-  //           });
-  //         }
-  //       });
+  //       modalEl.classList.toggle('active');
+  //       overlay.classList.toggle('active');
   //     });
-  //   }
+
+  //     overlay.addEventListener('click', e => {
+  //       overlay.classList.remove('active');
+  //       modalEl.classList.remove('active');
+  //     });
+  //   };
   // };
 
-  // tabsProducts(
-  //   '.main-menu__dropdown',
-  //   '.dropdown-catalog__item',
-  //   '.submenu__list',
-  //   'dropdown-catalog__item--active'
-  // );
+  // showDropdown('.main-menu__link--services', '.dropdown-services');
+  // showDropdown('.main-menu__link--catalog', '.dropdown-catalog');
+
+  // Tab
+
 
 
   const toggleFullSidebox = (accordion, accordionContent) => {

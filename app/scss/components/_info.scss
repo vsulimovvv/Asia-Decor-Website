@@ -6,6 +6,10 @@
 
     &:not(:last-child) {
       margin-bottom: 27px;
+
+      @include breakpointsMaxW($bp-container) {
+        margin-bottom: calc(15px + (27 - 15) * ((100vw - 320px) / (1225 - 320)));
+      }
     }
 
     a {

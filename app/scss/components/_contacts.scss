@@ -13,6 +13,7 @@
     @include breakpointsMaxW($bp-991) {
       grid-template-columns: 1fr;
       max-width: 580px;
+      gap: calc(50px + (80 - 50) * ((100vw - 320px) / (991 - 320)));
     }
   }
 
@@ -25,15 +26,24 @@
     margin-bottom: 24px;
     font-size: 48px;
     line-height: 56px;
+
+    @include breakpointsMaxW($bp-container) {
+      margin-bottom: calc(20px + (24 - 20) * ((100vw - 320px) / (1225 - 320)));
+    }
   }
 
   &__text {
     margin-bottom: 60px;
+
+    @include breakpointsMaxW($bp-container) {
+      margin-bottom: calc(30px + (60 - 30) * ((100vw - 320px) / (1225 - 320)));
+    }
   }
 
   &__map {
     width: 100%;
     height: 595px;
+    position: relative;
 
     iframe {
       width: 100%;

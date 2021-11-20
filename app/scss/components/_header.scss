@@ -8,6 +8,15 @@
   z-index: 111;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
+  @include breakpointsMaxW($bp-768) {
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  &__logo {
+    margin-right: 30px;
+  }
+
   &__wrapper {
     max-width: 1240px;
     // margin: 0 auto;
@@ -20,7 +29,10 @@
     margin-left: 130px;
 
     @include breakpointsMaxW($bp-container) {
-      margin-left: 30px;
+      margin-left: auto;
+      max-width: 755px;
+      width: 100%;
+      margin: 0 auto;
     }
 
     // margin-right: 50px;
@@ -61,7 +73,14 @@
   }
 
   &__tools {
-    margin-left: auto;
+
+    max-width: 100px;
+    flex-shrink: 0;
+
+    @include breakpointsMaxW($bp-991) {
+      margin-left: auto;
+      max-width: 85px;
+    }
   }
 
   &__search {
