@@ -8,9 +8,9 @@
   line-height: 1.25;
   background-color: var(--color-dropdown);
 
-  // opacity: 0;
-  // visibility: hidden;
-  // transform: translateY(-10px);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
 
   &.active {
     opacity: 1;
@@ -54,9 +54,9 @@
   font-size: 16px;
   line-height: 1.25;
 
-  // opacity: 0;
-  // visibility: hidden;
-  // transform: translateY(-10px);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
 
   background-color: var(--color-dropdown);
   transition: 350ms ease;

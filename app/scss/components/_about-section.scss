@@ -2,16 +2,17 @@
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   padding-top: 180px;
+  padding-bottom: 180px;
 
   @include breakpointsMaxW($bp-991) {
     .container {
       padding: 0;
     }
-
   }
 
   @include breakpointsMaxW($bp-768) {
     padding-top: 48px;
+    padding-bottom: 48px;
   }
 
   &__wrapper {}
@@ -85,6 +86,10 @@
     @include breakpointsMaxW($bp-991) {
       max-width: 100%;
       padding: 36px 16px;
+    }
+
+    @include breakpointsMaxW($bp-768) {
+      padding-top: 0;
     }
   }
 

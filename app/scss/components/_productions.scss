@@ -2,9 +2,21 @@
   padding-top: 70px;
   padding-bottom: 180px;
 
+  &--best-offers {
+    .productions__wrapper {
+      .slider {
+        display: block;
+      }
+    }
+  }
+
   &__title {
     text-align: center;
     margin-bottom: 74px;
+
+    @include breakpointsMaxW($bp-container) {
+      margin-bottom: calc(35px + (74 - 35) * ((100vw - 320px) / (1225 - 320)));
+    }
   }
 
   &__buttons {
@@ -19,6 +31,7 @@
 
     @include breakpointsMaxW($bp-container) {
       gap: calc(12px + (87 - 12) * ((100vw - 320px) / (1225 - 320)));
+      margin-bottom: calc(24px + (72 - 24) * ((100vw - 320px) / (1225 - 320)));
     }
 
     &::-webkit-scrollbar {
@@ -32,15 +45,9 @@
   &__button {
     font-size: 18px;
     line-height: 21px;
-    flex-shrink: 0;
-
-    button {
-      color: inherit;
-    }
+    white-space: nowrap;
 
     &--active {
-
-
       color: #f00;
     }
   }
@@ -51,7 +58,7 @@
     height: 530px;
 
     @include breakpointsMaxW($bp-container) {
-      // height: calc(530px + (530 - ) * ((100vw - 320px) / (1225 - 320)));
+      height: calc(230px + (530 - 230) * ((100vw - 320px) / (1225 - 320)));
     }
   }
 
@@ -63,15 +70,8 @@
     }
   }
 
-  &__slide {
-
-    img {}
-  }
-
-
   .slider {
     position: relative;
-    // min-width: 0;
     display: none;
 
     &.active {
@@ -83,7 +83,6 @@
     height: 6px;
     width: 100%;
     background-color: rgb(245, 245, 245);
-    // bottom: 0;
     z-index: 0;
 
     display: flex;
@@ -98,9 +97,6 @@
     z-index: 10;
 
     background-color: transparent;
-
-
-    // background-color:;
 
     &-active {
       background-color: #c4c4c4;

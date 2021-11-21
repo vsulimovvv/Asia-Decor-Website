@@ -1,6 +1,10 @@
 .services {
   padding-bottom: 180px;
 
+  @include breakpointsMaxW($bp-container) {
+    padding-bottom: calc(50px + (180 - 50) * ((100vw - 320px) / (1225 - 320)));
+  }
+
   &__wrapper {
     display: grid;
     grid-template-columns: 1fr minmax(auto, 585px);

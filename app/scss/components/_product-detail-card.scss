@@ -1,0 +1,33 @@
+.product-detail-card {
+  height: 140px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ededed;
+  padding: 0 20px;
+
+  &__offer {
+    max-width: 147px;
+    height: 78px;
+  }
+
+  &__name {
+    margin-bottom: 15px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  &__img {
+    width: 75px;
+    height: 90px;
+
+    img {
+      @include img(contain);
+    }
+  }
+
+  &__price {
+    font-size: 18px;
+    line-height: 21px;
+  }
+}

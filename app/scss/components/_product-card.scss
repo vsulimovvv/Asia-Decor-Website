@@ -40,5 +40,10 @@
   &__title {
     font-size: 18px;
     line-height: 21px;
+
+    @include breakpointsMaxW($bp-container) {
+      font-size: calc(12px + (18 - 12) * ((100vw - 320px) / (1225 - 320)));
+      line-height: calc(14px + (21 - 14) * ((100vw - 320px) / (1225 - 320)));
+    }
   }
 }

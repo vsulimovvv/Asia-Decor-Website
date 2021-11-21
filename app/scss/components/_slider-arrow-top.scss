@@ -1,0 +1,13 @@
+.slider-arrow-top {
+  &__slider {
+    height: 493px;
+  }
+
+  .swiper-pagination {
+    display: none;
+
+    @include breakpointsMaxW($bp-768) {
+      display: block;
+    }
+  }
+}
