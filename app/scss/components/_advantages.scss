@@ -82,42 +82,42 @@
 
     &:nth-child(1) {
       &::after {
-        @include maskImage(url('../images/sprite.svg#adv-1'), contain);
+        @include maskImage(url('../images/sprite.svg#adv-1'), cover);
         background-color: var(--color-white);
       }
     }
 
     &:nth-child(2) {
       &::after {
-        @include maskImage(url('../images/sprite.svg#adv-2'), contain);
+        @include maskImage(url('../images/sprite.svg#adv-2'), cover);
         background-color: var(--color-white);
       }
     }
 
     &:nth-child(3) {
       &::after {
-        @include maskImage(url('../images/sprite.svg#adv-3'), contain);
+        @include maskImage(url('../images/sprite.svg#adv-3'), cover);
         background-color: var(--color-white);
       }
     }
 
     &:nth-child(4) {
       &::after {
-        @include maskImage(url('../images/sprite.svg#adv-4'), contain);
+        @include maskImage(url('../images/sprite.svg#adv-4'), cover);
         background-color: var(--color-white);
       }
     }
 
     &:nth-child(5) {
       &::after {
-        @include maskImage(url('../images/sprite.svg#adv-5'), contain);
+        @include maskImage(url('../images/sprite.svg#adv-5'), 128px);
         background-color: var(--color-white);
       }
     }
 
     &:nth-child(6) {
       &::after {
-        @include maskImage(url('../images/sprite.svg#adv-6'), contain);
+        @include maskImage(url('../images/sprite.svg#adv-6'), cover);
         background-color: var(--color-white);
       }
     }

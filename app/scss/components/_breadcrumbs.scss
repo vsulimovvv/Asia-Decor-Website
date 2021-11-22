@@ -1,0 +1,45 @@
+.breadcrumbs {
+  font-size: 12px;
+  line-height: 14px;
+  color: #9F9BA9;
+  margin-top: 24px;
+  margin-bottom: 32px;
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    position: relative;
+
+    &:not(:last-child) {
+      margin-right: 34px;
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      width: 14px;
+      height: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      margin-left: 10px;
+
+      @include maskImage(url('../images/sprite.svg#chevron-right'), cover);
+      background-color: #9F9BA9;
+    }
+
+    &:last-child {
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  &__link {
+    &--active {
+      color: var(--color-dark);
+    }
+  }
+}

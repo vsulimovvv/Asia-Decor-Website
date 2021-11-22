@@ -2,22 +2,14 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // ! Slider Production
   const sliderGroup = () => {
-    // const sliderRec = document.querySelectorAll('.productions__slider');
-
     const x = document.getElementsByClassName('slider');
     for (let i = 0; i < x.length; i++) {
       const el = x[i];
-      // if (x) {
 
       const sliderDef = el.getElementsByClassName('productions__slider')[0];
       const nextBtn = el.getElementsByClassName('arrow-next')[0];
       const prevBtn = el.getElementsByClassName('arrow-prev')[0];
 
-      console.log(nextBtn)
-
-
-      // const nextBtn = document.querySelector('.arrow-next');
-      // const prevBtn = document.querySelector('.arrow-prev');
       const swiper = new Swiper(sliderDef, {
         spaceBetween: 29,
         navigation: {
@@ -42,7 +34,6 @@ window.addEventListener('DOMContentLoaded', () => {
           },
         },
       });
-      // }
     }
   };
   sliderGroup();
@@ -151,6 +142,9 @@ window.addEventListener('DOMContentLoaded', () => {
         navigation: {
           nextEl: parentEl.querySelector(".swiper-button-next"),
           prevEl: parentEl.querySelector(".swiper-button-prev"),
+        },
+        pagination: {
+          el: parentEl.querySelector(".swiper-pagination"),
         },
         breakpoints: {
           320: {

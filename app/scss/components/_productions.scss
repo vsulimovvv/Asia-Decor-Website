@@ -2,6 +2,11 @@
   padding-top: 70px;
   padding-bottom: 180px;
 
+  @include breakpointsMaxW($bp-container) {
+    padding-bottom: calc(50px + (180 - 50) * ((100vw - 320px) / (1225 - 320)));
+    padding-top: calc(50px + (70 - 50) * ((100vw - 320px) / (1225 - 320)));
+  }
+
   &--best-offers {
     .productions__wrapper {
       .slider {
