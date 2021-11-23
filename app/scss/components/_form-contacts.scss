@@ -7,13 +7,17 @@
   line-height: 19px;
 
   @include breakpointsMaxW($bp-container) {
-    padding: calc(20px + (40 - 20) * ((100vw - 320px) / (1225 - 320)));
+    padding: calc(10px + (40 - 10) * ((100vw - 320px) / (1225 - 320)));
   }
 
   &__title {
     font-size: 24px;
     line-height: 28px;
     margin-bottom: 27px;
+
+    @include breakpointsMaxW($bp-container) {
+      font-size: calc(18px + (24 - 18) * ((100vw - 320px) / (1225 - 320)));
+    }
   }
 
   &__group {
@@ -28,14 +32,44 @@
     padding: 18px 24px;
     background-color: var(--color-white);
 
+    &:focus {
+      box-shadow: 0 0 0 3px var(--color-focus);
+    }
+
+    &:hover {
+      background-color: rgb(255, 237, 214);
+    }
+
+    &:active {
+      // box-shadow: inset 0px 7px 4px var(--color-focus);
+
+      &::placeholder {
+        color: var(--color-dark)
+      }
+    }
+
+    @include breakpointsMaxW($bp-768) {
+      font-size: 14px;
+      line-height: 16px;
+    }
+
     &::placeholder {
       font-size: 16px;
       line-height: 19px;
+
+      @include breakpointsMaxW($bp-768) {
+        font-size: 14px;
+        line-height: 16px;
+      }
     }
 
     &--textarea {
       min-height: 110px;
       margin-bottom: 23px;
+
+      @include breakpointsMaxW($bp-container) {
+        min-height: calc(90px + (110 - 90) * ((100vw - 320px) / (1225 - 320)));
+      }
     }
 
     @include breakpointsMaxW($bp-768) {
@@ -51,12 +85,23 @@
     margin-bottom: 23px;
 
     @include backgroundImage(url('../images/captcha.jpg'), contain);
+
+    @include breakpointsMaxW($bp-768) {
+      margin: 0 auto 20px;
+    }
   }
 
   &__btn {
-    max-width: 220px;
     padding-right: 64px;
     padding-left: 64px;
+
+    &:hover {
+      background-color: var(--color-accent-dark);
+    }
+
+    @include breakpointsMaxW($bp-768) {
+      margin: 0 auto;
+    }
   }
 }
 

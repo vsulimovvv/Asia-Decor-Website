@@ -1,4 +1,10 @@
 .contacts {
+  padding-top: 20px;
+
+  @include breakpointsMaxW($bp-768) {
+    padding-top: 0;
+  }
+
   &__top {
     display: grid;
     grid-template-columns: 1fr minmax(auto, 580px);
@@ -15,11 +21,19 @@
       max-width: 580px;
       gap: calc(50px + (80 - 50) * ((100vw - 320px) / (991 - 320)));
     }
+
+    @include breakpointsMaxW($bp-768) {
+      margin-bottom: 40px;
+    }
   }
 
   &__offer {
     font-size: 18px;
     line-height: 25px;
+
+    @include breakpointsMaxW($bp-768) {
+      font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (991 - 320)));
+    }
   }
 
   &__title {
@@ -34,7 +48,7 @@
     margin-bottom: 60px;
 
     @include breakpointsMaxW($bp-container) {
-      margin-bottom: calc(30px + (60 - 30) * ((100vw - 320px) / (1225 - 320)));
+      margin-bottom: calc(25px + (60 - 25) * ((100vw - 320px) / (1225 - 320)));
     }
   }
 

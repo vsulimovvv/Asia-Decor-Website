@@ -81,15 +81,6 @@
   }
 }
 
-@mixin focusActive() {
-  outline: transparent;
-
-  &:focus,
-  &:active {
-    box-shadow: 0 0 0 3px rgba(188, 29, 74, 0.5);
-  }
-}
-
 @mixin linkHover() {
   position: relative;
 
@@ -112,5 +103,35 @@
     &::before {
       transform: scaleX(1);
     }
+  }
+}
+
+@mixin btnFocusActive {
+  &:focus {
+    box-shadow: 0 0 0 3px lighten(#bc1d4a, 20%);
+  }
+
+  &:active {
+    box-shadow: inset 0px 7px 4px var(--color-button-active);
+  }
+}
+
+@mixin btnLinkFocusActive {
+  &:focus {
+    box-shadow: 0 0 0 3px lighten(#bc1d4a, 20%);
+  }
+
+  &:active {
+    background-color: #f0f0f0;
+  }
+}
+
+@mixin linkFocusActive {
+  &:focus {
+    box-shadow: 0 0 0 3px lighten(#bc1d4a, 20%);
+  }
+
+  &:active {
+    background-color: #f0f0f0;
   }
 }

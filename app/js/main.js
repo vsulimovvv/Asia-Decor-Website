@@ -187,6 +187,32 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }());
 
+  (function verticalSlider1() {
+    const arrowNext = document.querySelector('.arrow-next');
+    const arrowPrev = document.querySelector('.arrow-prev');
+
+    let mySwiperNav = new Swiper('#product-nav', {
+      slidesPerView: 3.2,
+      spaceBetween: 12,
+      direction: 'horizontal',
+      watchSlidesVisibility: true,
+      watchSlidesProgress: true,
+      loopedSlides: 3,
+    });
+
+    let mySwiper = new Swiper('#product-main', {
+      navigation: {
+        nextEl: arrowNext,
+        prevEl: arrowPrev,
+      },
+      spaceBetween: 10,
+      loopedSlides: 4,
+      thumbs: {
+        swiper: mySwiperNav
+      }
+    });
+  }());
+
   // const menuSearchBox = document.querySelector('.menu-search');
   // const menuSearchToggle = document.querySelector('.header__search');
 

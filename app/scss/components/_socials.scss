@@ -30,7 +30,7 @@
       transform: scale(1.1);
     }
 
-    @include focusActive();
+    // @include focusActive();
 
     &::after {
       transition: 150ms ease;

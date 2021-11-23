@@ -13,6 +13,10 @@ body {
   }
 }
 
+a {
+  @include linkFocusActive();
+}
+
 .container {
   max-width: $bp-container;
   padding: 0px 15px;
@@ -110,11 +114,6 @@ body {
   }
 }
 
-a,
-button {
-  @include focusActive();
-}
-
 // Buttons Default Classes
 .btn {
   display: inline-block;
@@ -129,6 +128,8 @@ button {
 
   background-color: var(--color-accent);
   color: var(--color-white);
+
+  @include btnFocusActive();
 
   &--link {
     padding: 0;
@@ -145,6 +146,8 @@ button {
         transform: translateY(-50%) translateX(3px);
       }
     }
+
+    @include btnLinkFocusActive();
 
     &::after,
     &::before {
@@ -308,6 +311,8 @@ button {
     border: 1px solid var(--color-unaccent);
     border-radius: 50%;
 
+    @include btnFocusActive();
+
     &::after {
       content: '';
     }
@@ -348,4 +353,9 @@ button {
   display: block;
   font-size: 14px;
   line-height: 16px;
+}
+
+.arrow-next,
+.arrow-prev {
+  @include btnLinkFocusActive();
 }

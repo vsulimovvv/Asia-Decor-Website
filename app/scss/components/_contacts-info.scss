@@ -1,8 +1,12 @@
-.info {
+.contacts-info {
   &__box {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+    &--phones {
+      font-family: $Roboto;
+    }
 
     &:not(:last-child) {
       margin-bottom: 27px;
@@ -13,10 +17,13 @@
     }
 
     a {
-      font-size: 16px;
-      line-height: 1.5;
-      padding-left: 30px;
+      padding-left: 42px;
       position: relative;
+      transition: 150ms ease;
+
+      &:hover {
+        color: var(--color-accent);
+      }
 
       &::after {
         @include pseudoElDefault();
@@ -35,6 +42,10 @@
       }
 
       &.phone {
+        &:last-child {
+          margin-top: 10px;
+        }
+
         &::after {
           @include maskImage(url('../images/sprite.svg#phone-icon'), cover);
           background-color: var(--color-dark);
@@ -48,7 +59,11 @@
         }
       }
 
-      .shedule {
+      &.shedule {
+        &__time {
+          font-family: $Roboto;
+        }
+
         &::after {
           @include maskImage(url('../images/sprite.svg#clock'), cover);
           background-color: var(--color-dark);

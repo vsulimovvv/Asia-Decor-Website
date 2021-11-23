@@ -86,7 +86,9 @@
     background-color: var(--color-white);
     transition: 150ms ease-in;
 
-    &:hover {
+    &:hover,
+    &:focus,
+    &:active {
       background-color: var(--color-accent);
       transform: scale(1.1)
     }

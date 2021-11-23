@@ -5,8 +5,13 @@
 
   --color-dark: #424047; // rgba(66, 64, 71, 1)
   --color-accent: #bc1d4a; // rgba(188, 29, 74, 1)
-  --color-dropdown: #4C4950;
+  --color-dropdown: #4c4950;
   --color-unaccent: #c4c4c4;
+
+  --color-accent-dark: #a61a41;
+  --color-focus: rgba(188, 29, 74, 0.5);
+  --color-input-hover: #f0f0f0;
+  --color-button-active: rgba(0, 0, 0, 0.3);
 }
 
 // * breakpointsMaxW
@@ -30,3 +35,7 @@ $z-100: 100;
 // * ==== Fonts
 $Raleway: 'Raleway';
 $Roboto: 'Roboto';
+
+// focus 
+// hover
+// active

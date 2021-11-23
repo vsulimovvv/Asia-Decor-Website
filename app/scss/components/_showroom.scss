@@ -61,24 +61,6 @@
     margin-bottom: 22px;
   }
 
-  &__location {
-    font-size: 16px;
-    line-height: 1.5;
-    padding-left: 30px;
-    position: relative;
-
-    &::after {
-      @include pseudoElDefault();
-      width: 18px;
-      height: 18px;
-      top: 50%;
-      left: 0;
-      transform: translateY(-50%);
-      @include maskImage(url('../images/sprite.svg#map'), cover);
-      background-color: var(--color-dark);
-    }
-  }
-
   &__info {
     padding: 29px 30px 37px;
   }

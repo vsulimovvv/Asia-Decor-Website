@@ -66,6 +66,15 @@
       transition: 150ms ease;
     }
 
+    &:focus {
+      background-color: lighten(#bc1d4a, 20%);
+      border-radius: 3px;
+    }
+
+    &:active {
+      color: var(--color-white);
+    }
+
     &--active,
     &:hover {
       &::after {
