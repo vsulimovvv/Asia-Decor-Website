@@ -65,4 +65,52 @@
   content: '';
 }
 
-@mixin hoverLink($el) {}
+@mixin line-clamp($lines: 1) {
+  @if $lines <=1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  @else {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+  }
+}
+
+@mixin focusActive() {
+  outline: transparent;
+
+  &:focus,
+  &:active {
+    box-shadow: 0 0 0 3px rgba(188, 29, 74, 0.5);
+  }
+}
+
+@mixin linkHover() {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: '';
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-accent);
+    transform: scaleX(0);
+    transition: 250ms ease;
+    transform-origin: left;
+  }
+
+  &:hover {
+    color: var(--color-accent);
+
+    &::before {
+      transform: scaleX(1);
+    }
+  }
+}

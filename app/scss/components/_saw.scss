@@ -3,8 +3,6 @@
   background-color: var(--color-white);
   color: var(--color-dark);
 
-
-  // @include backgroundImage2(url('../images/content/hero/hero-img.jpg'), right, 32%, 43%, 80%);
   @include breakpointsMaxW($bp-container) {
     background-size: contain;
   }
@@ -12,15 +10,10 @@
   &__wrapper {
     min-height: 800px;
 
-    @include breakpointsMaxW($bp-container) {}
-
-    @include breakpointsMaxW($bp-991) {
-      // height: calc(650px + (700 - 650) * ((100vw - 320px) / (1225 - 320)));
-    }
-
     display: grid;
     grid-template-columns: minmax(auto, 660px) 700px;
     gap: 75px;
+    margin-bottom: 85px;
 
     @include breakpointsMaxW($bp-container) {
       justify-content: space-between;
@@ -30,7 +23,7 @@
 
     @include breakpointsMaxW(1200px) {
       grid-template-columns: 1fr 1fr;
-      gap: 50px;
+      margin-top: calc(30px + (50 - 30) * ((100vw - 320px) / (1225 - 320)));
     }
 
     @include breakpointsMaxW($bp-991) {
@@ -40,19 +33,18 @@
 
   &__offer {
     max-width: 790px;
+    font-size: 18px;
+    line-height: 1.5;
 
-    @include breakpointsMaxW($bp-container) {}
-
-    @include breakpointsMaxW($bp-768) {}
-
-    @include breakpointsMaxW($bp-420) {}
+    @include breakpointsMaxW($bp-1200) {
+      font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1225 - 320)));
+    }
   }
 
   &__preview {
     flex-shrink: 0;
     max-width: 708px;
     width: 100%;
-    // min-height: calc(100% - 45px);
     padding-bottom: 33px;
     padding-top: 15px;
 
@@ -65,24 +57,12 @@
     }
   }
 
-  &__title {
-    font-weight: 500;
-    font-size: 48px;
-    line-height: 56px;
-    margin-bottom: 44px;
-
-    @include breakpointsMaxW($bp-container) {}
-
-    @include breakpointsMaxW($bp-991) {
-      // font-size: calc(32px + (67 - 32) * ((100vw - 320px) / (1225 - 320)));
-    }
-  }
-
   &__btn {
-    margin-bottom: 130px;
     position: relative;
     border-radius: 5px;
     transition: 350ms ease;
+    padding-left: 74px;
+    padding-right: 74px;
 
     &::after {
       position: absolute;
@@ -126,60 +106,79 @@
   }
 
   &__text {
-    margin-bottom: 75px;
-    font-size: 18px;
-    line-height: 1.5;
+    margin-bottom: 28px;
+
+    @include breakpointsMaxW($bp-container) {
+      margin-bottom: calc(15px + (28 - 15) * ((100vw - 320px) / (1225 - 320)));
+    }
 
     p {
       &:not(:last-child) {
         margin-bottom: 25px;
-      }
 
-      &.icon {
-        padding-left: 71px;
-        position: relative;
-
-        &:hover {
-          &::after {
-            // background-color: var(--color-accent);
-          }
-        }
-
-        &::after {
-          @include pseudoElDefault();
-          width: 46px;
-          height: 46px;
-          border: 1px solid var(--color-accent);
-          border-radius: 50%;
-          left: 0;
-          top: 50%;
-          transform: translateY(-50%);
-          transition: 150ms ease-in;
-
-          @include backgroundImage(url('../images/icons/info.svg'), contain);
-
-          // @include maskImage(url('../images/sprite.svg#info'), contain);
-          // background-color: var(--color-accent);
+        @include breakpointsMaxW($bp-container) {
+          margin-bottom: calc(15px + (25 - 15) * ((100vw - 320px) / (1225 - 320)));
         }
       }
     }
   }
 
+  &__text-icon {
+    padding-left: 71px;
+    position: relative;
+    max-width: 490px;
+    margin-top: 44px;
+
+    @include breakpointsMaxW($bp-container) {
+      margin-top: calc(25px + (44 - 25) * ((100vw - 320px) / (1225 - 320)));
+    }
+
+    @include breakpointsMaxW($bp-768) {
+      padding-left: 50px;
+    }
+
+    &::after {
+      @include pseudoElDefault();
+      width: 46px;
+      height: 46px;
+      border: 1px solid var(--color-accent);
+      border-radius: 50%;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: 150ms ease-in;
+
+      @include backgroundImage(url('../images/icons/info.svg'), contain);
+
+      @include breakpointsMaxW($bp-768) {
+        width: 28px;
+        height: 28px;
+      }
+
+      // @include maskImage(url('../images/sprite.svg#info'), contain);
+      // background-color: var(--color-accent);
+    }
+  }
+
   &__list {
     margin-bottom: 75px;
+
+    @include breakpointsMaxW($bp-container) {
+      margin-bottom: calc(25px + (75 - 25) * ((100vw - 320px) / (1225 - 320)));
+    }
   }
 
   &__item {
     line-height: 42px;
     position: relative;
-    padding-left: 10px;
+    padding-left: 20px;
 
     &::after {
       @include pseudoElDefault();
       width: 3px;
       height: 3px;
       top: 15px;
-      left: 0;
+      left: 2px;
       background-color: var(--color-dark);
     }
   }

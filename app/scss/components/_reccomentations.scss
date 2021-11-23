@@ -1,11 +1,41 @@
 .reccomentations {
-  height: 240px;
-
   .slider-arrow-top {
     .slider-arrow-top__slider {
-      height: 143px;
+      max-height: 250px;
+    }
+
+    .swiper-pagination {
+      height: 6px;
+      width: 100%;
+      background-color: rgb(245, 245, 245);
+      z-index: 0;
+    
+      display: flex;
+      align-items: center;
+    }
+    
+    .swiper-pagination-bullet {
+      max-width: 342px;
+      width: 100%;
+      height: 100%;
+      border-radius: 0;
+      z-index: 10;
+      transform: scaleX(0);
+    
+      transition: 350ms ease-in;
+    
+      background-color: transparent;
+    
+      &-active {
+        background-color: #c4c4c4;
+        transform: scaleX(1);
+      }
     }
   }
 
   margin-bottom: 120px;
+
+  @include breakpointsMaxW($bp-container) {
+    margin-bottom: calc(50px + (123 - 30) * ((100vw - 320px) / (1225 - 320)));
+  }
 }

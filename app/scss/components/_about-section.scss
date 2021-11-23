@@ -15,7 +15,9 @@
     padding-bottom: 48px;
   }
 
-  &__wrapper {}
+  &__text {
+    @include line-clamp(6);
+  }
 
   &__row {
     display: grid;

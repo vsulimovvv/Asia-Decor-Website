@@ -5,7 +5,6 @@
 
   &:hover {
     box-shadow: 0 4px 10px rgba(237, 237, 237);
-    // border-color: transparent;
 
     .news-card__img {
 
@@ -13,7 +12,6 @@
       &::after {
         transform: scale3d(1, 1, 1);
       }
-
     }
 
     .news-card__text {
@@ -60,7 +58,6 @@
     }
   }
 
-
   &__info {
     padding: 38px 32px 41px;
 
@@ -83,10 +80,5 @@
     @include breakpointsMaxW($bp-768) {
       font-size: 18px;
     }
-  }
-
-  &__data {
-    font-size: 14px;
-    line-height: 16px;
   }
 }

@@ -1,6 +1,10 @@
 .stock-slider {
   margin-bottom: 188px;
 
+  @include breakpointsMaxW($bp-container) {
+    margin-bottom: calc(50px + (123 - 30) * ((100vw - 320px) / (1225 - 320)));
+  }
+
   .slider-arrow-top {
     .swiper-pagination {
       display: flex;

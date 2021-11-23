@@ -2,9 +2,26 @@
   max-width: 702px;
   border: 1px solid rgba(237, 237, 237);
 
+  &:hover {
+    box-shadow: 0 4px 10px rgba(237, 237, 237);
+
+    .showroom__img {
+
+      &::before,
+      &::after {
+        transform: scale3d(1, 1, 1);
+      }
+    }
+
+    .showroom__title {
+      color: var(--color-accent);
+    }
+  }
+
   &__img {
     width: 100%;
     height: 376px;
+    position: relative;
 
     img {
       @include img(cover);
@@ -12,6 +29,29 @@
 
     @include breakpointsMaxW($bp-container) {
       height: calc(200px + (376 - 200) * ((100vw - 320px) / (1225 - 320)));
+    }
+
+    &::before,
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      transform: scale3d(0, 0, 1);
+      transition: transform .3s ease-out 0s;
+      background: rgba(66, 64, 71, .1);
+
+      content: '';
+      pointer-events: none;
+    }
+
+    &::before {
+      transform-origin: left top;
+    }
+
+    &::after {
+      transform-origin: right bottom;
     }
   }
 

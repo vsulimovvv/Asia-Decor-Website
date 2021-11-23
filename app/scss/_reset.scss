@@ -113,6 +113,10 @@ input[type="search"]::-webkit-search-results-decoration {
   display: none;
 }
 
+button,
+a {
+  outline: transparent;
+}
 
 // ! Для прибития футера к низу
 

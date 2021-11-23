@@ -5,65 +5,28 @@
     gap: 123px;
     margin-bottom: 60px;
     margin-top: 60px;
+
+    @include breakpointsMaxW($bp-container) {
+      grid-template-columns: 1fr 1fr;
+      gap: calc(30px + (123 - 30) * ((100vw - 320px) / (1225 - 320)));
+    }
+
+    @include breakpointsMaxW($bp-991) {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__slider {
     border: 1px solid #ededed;
     height: 607px;
 
-    .slider-thumbs__main {
-      padding-top: 30px;
-      height: 440px;
-      margin-bottom: 72px;
-
-      .swiper-slide {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        img {
-          width: 382px;
-          height: 382px;
-          object-fit: cover;
-        }
-      }
-    }
-
-    .slider-thumbs__nav {
-      max-width: 209px;
-      height: 63px;
-
-      .swiper-slide {
-        border: 1px solid #EDEDED;
-        width: 61px;
-        height: 61px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        img {
-          width: 44px;
-          height: 44px;
-          object-fit: cover;
-        }
-      }
-
-      .swiper-slide-thumb-active {
-        border: 1px solid #BC1D4A;
-      }
+    @include breakpointsMaxW($bp-container) {
+      height: calc(400px + (607 - 400) * ((100vw - 320px) / (1225 - 320)));
     }
   }
 }
 
 .single-product-info {
-  &__name {
-    font-size: 48px;
-    line-height: 56px;
-    margin-bottom: 24px;
-  }
-
   &__vendor-code {
     font-size: 14px;
     line-height: 16px;
@@ -108,7 +71,6 @@
       .accordion__content {
         opacity: 1;
         visibility: visible;
-        // max-height: 300px;
       }
 
       // .accordion__content {
@@ -134,9 +96,8 @@
       top: 50%;
       transform: translateY(-50%);
     }
-    &::after{
-      
-    }
+
+    &::after {}
   }
 
   &__content {
@@ -157,7 +118,6 @@
   &.active {
     .review__content {
       opacity: 1;
-      // max-height: 130px !importan/t;
       overflow: hidden;
       visibility: visible;
     }

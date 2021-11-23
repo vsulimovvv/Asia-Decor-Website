@@ -1,10 +1,21 @@
 .product-detail-card {
-  height: 140px;
+  min-height: 140px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border: 1px solid #ededed;
   padding: 0 20px;
+
+  @include breakpointsMaxW($bp-991) {
+    flex-direction: column;
+    padding: 10px;
+    align-items: flex-start;
+    padding-left: 20px;
+  }
+
+  @include breakpointsMaxW($bp-768) {
+    padding-left: 10px;
+  }
 
   &__offer {
     max-width: 147px;
@@ -15,11 +26,16 @@
     margin-bottom: 15px;
     font-size: 14px;
     line-height: 1.5;
+
+    @include breakpointsMaxW($bp-768) {
+      margin-bottom: 10px;
+    }
   }
 
   &__img {
     width: 75px;
     height: 90px;
+    flex-shrink: 0;
 
     img {
       @include img(contain);

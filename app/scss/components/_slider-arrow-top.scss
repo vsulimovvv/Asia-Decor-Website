@@ -1,6 +1,10 @@
 .slider-arrow-top {
   &__slider {
     height: 493px;
+
+    @include breakpointsMaxW($bp-container) {
+      height: calc(230px + (493 - 230) * ((100vw - 320px) / (1225 - 320)));
+    }
   }
 
   .swiper-pagination {

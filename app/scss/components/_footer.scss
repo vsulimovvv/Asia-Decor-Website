@@ -16,11 +16,12 @@
     padding-right: 60px;
 
     @include breakpointsMaxW($bp-container) {
+      padding-right: 0;
       gap: 60px;
+      justify-content: space-between;
     }
 
     @include breakpointsMaxW($bp-1200) {
-      padding-right: 0;
       grid-template-columns: auto 1fr minmax(auto, 248px);
       gap: 55px;
     }
@@ -46,6 +47,8 @@
   }
 
   &__menu {
+    max-width: 570px;
+    width: 100%;
 
     @include breakpointsMaxW($bp-container) {
       max-width: 580px;
@@ -59,7 +62,7 @@
     .menu__shedule {
       display: flex;
       justify-content: space-between;
-      gap: 120px;
+      gap: 90px;
 
       @include breakpointsMaxW($bp-container) {
         gap: 60px;
@@ -84,6 +87,7 @@
   }
 
   &__phones {
+    font-family: $Roboto;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -97,6 +101,8 @@
       &:hover {
         color: var(--color-accent);
       }
+
+      @include focusActive();
     }
   }
 

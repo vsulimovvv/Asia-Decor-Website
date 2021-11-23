@@ -81,6 +81,9 @@ window.addEventListener('DOMContentLoaded', () => {
           nextEl: parentEl.querySelector(".swiper-button-next"),
           prevEl: parentEl.querySelector(".swiper-button-prev"),
         },
+        pagination: {
+          el: parentEl.querySelector(".swiper-pagination"),
+        },
         breakpoints: {
           320: {
             slidesPerView: 2.1,
@@ -315,62 +318,6 @@ window.addEventListener('DOMContentLoaded', () => {
   //   'dropdown-catalog__item--active'
   // );
 
-  function tabsSlider(
-    headerSelector,
-    tabSelector,
-    contentSelector,
-    activeClass
-  ) {
-    const header = document.querySelectorAll(headerSelector);
-    const tab = document.querySelectorAll(tabSelector);
-    const content = document.querySelectorAll(contentSelector);
-
-    if (content && header && tab) {
-
-      hideTabContent();
-      showTabContent();
-
-      function hideTabContent() {
-        content.forEach((item) => {
-          item.classList.remove('active');
-        });
-        tab.forEach((item) => {
-          item.classList.remove(activeClass);
-        });
-      }
-
-      function showTabContent(i = 0) {
-        content[i].classList.add('active');
-        tab[i].classList.add(activeClass);
-      }
-
-      header.forEach((item) => {
-        item.addEventListener('click', (e) => {
-          const target = e.target;
-          console.log(target);
-          if (
-            target.classList.contains(tabSelector.replace(/\./, ''))
-            // target.classList.contains(tabSelector)
-          ) {
-            tab.forEach((item, i) => {
-              if (target == item || target.parentNode == item) {
-                hideTabContent();
-                showTabContent(i);
-              }
-            });
-          }
-        });
-      });
-    }
-  };
-
-  tabsSlider(
-    '.productions__wrapper',
-    '.productions__button',
-    '.slider',
-    'productions__button--active'
-  );
-
 
   const toggleAccordion = (accordion, accordionContent) => {
     const filters = document.querySelectorAll(accordion);
@@ -394,6 +341,62 @@ window.addEventListener('DOMContentLoaded', () => {
   // toggleFullSidebox('.main-menu__item', '.filter-box__drop');
   toggleAccordion('.accordion__control', '.accordion__content');
   toggleAccordion('.review__top', '.review__content');
+
+  // !
+  (function tabsSlider(
+    headerSelector,
+    tabSelector,
+    contentSelector,
+    activeClass
+  ) {
+    const header = document.querySelectorAll(headerSelector);
+    const tab = document.querySelectorAll(tabSelector);
+    const content = document.querySelectorAll(contentSelector);
+
+    header.forEach(el => {
+      hideTabContent();
+      showTabContent();
+
+      function hideTabContent() {
+        content.forEach((item) => {
+          item.classList.remove('active');
+        });
+        tab.forEach((item) => {
+          item.classList.remove(activeClass);
+        });
+      }
+
+      function showTabContent(i = 0) {
+        content[i].classList.add('active');
+        tab[i].classList.add(activeClass);
+      }
+
+      header.forEach((item) => {
+        if (item) {
+          item.addEventListener('click', (e) => {
+            const target = e.target;
+
+            if (
+              target.classList.contains(tabSelector.replace(/\./, ''))
+            ) {
+              tab.forEach((item, i) => {
+                if (target == item || target.parentNode == item) {
+                  hideTabContent();
+                  showTabContent(i);
+                }
+              });
+            }
+          });
+        }
+      });
+      // }
+    })
+  }(
+    '.productions__wrapper',
+    '.productions__button',
+    '.slider',
+    'productions__button--active'
+  ));
 });
 
 // const showMenu = () => {

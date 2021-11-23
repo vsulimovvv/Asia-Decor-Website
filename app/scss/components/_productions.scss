@@ -52,8 +52,25 @@
     line-height: 21px;
     white-space: nowrap;
 
-    &--active {
-      color: #f00;
+    position: relative;
+    padding-bottom: 18px;
+
+    &::after {
+      @include pseudoElDefault();
+      width: 100%;
+      height: 1px;
+      background-color: var(--color-accent);
+      bottom: 1px;
+      left: 0;
+      transform: scaleX(0);
+      transition: 150ms ease;
+    }
+
+    &--active,
+    &:hover {
+      &::after {
+        transform: scaleX(1);
+      }
     }
   }
 
@@ -81,6 +98,7 @@
 
     &.active {
       display: block;
+      animation: opacity-visibility 2000ms both;
     }
   }
 

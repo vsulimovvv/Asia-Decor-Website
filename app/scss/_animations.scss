@@ -37,14 +37,28 @@
 @keyframes opacity {
   0% {
     opacity: 0;
+    visibility: hidden;
     transform: translateY(-100%);
   }
 
   99% {
     opacity: 1;
+    visibility: visible;
   }
 
   100% {
     transform: translateY(0);
+  }
+}
+
+@keyframes opacity-visibility {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  100% {
+    opacity: 1;
+    visibility: visible;
   }
 }

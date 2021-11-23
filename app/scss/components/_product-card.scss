@@ -2,11 +2,25 @@
   max-width: 336px;
   width: 100%;
   position: relative;
-  // height: 430px;
+  transition: 300ms ease;
+  // 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 430px;
+  position: relative;
 
-  // @include breakpointsMaxW($bp-container) {
-  //   height: calc(182px + (430 - 182) * ((100vw - 320px) / (1225 - 320)));
-  // }
+  @include breakpointsMaxW($bp-container) {
+    min-height: calc(182px + (430 - 182) * ((100vw - 320px) / (1225 - 320)));
+  }
+  
+  &:hover {
+    .product-card__img {
+      img {
+        transform: scale(1.1);
+      }
+    }
+  }
 
   &__badge {
     position: absolute;
@@ -20,12 +34,15 @@
     line-height: 14px;
     text-transform: uppercase;
     padding: 7px;
+    z-index: 10;
   }
 
   &__img {
     width: 100%;
     margin-bottom: 28px;
     height: 381px;
+    transition: 150ms ease-in;
+    overflow: hidden;
 
     @include breakpointsMaxW(1200px) {
       height: calc(160px + (381 - 160) * ((100vw - 320px) / (1225 - 320)));
@@ -34,12 +51,19 @@
 
     img {
       @include img(cover);
+      transition: 250ms ease;
     }
   }
 
   &__title {
     font-size: 18px;
     line-height: 21px;
+    margin-top: auto;
+    transition: 250ms ease-in;
+
+    &:hover {
+      color: var(--color-accent);
+    }
 
     @include breakpointsMaxW($bp-container) {
       font-size: calc(12px + (18 - 12) * ((100vw - 320px) / (1225 - 320)));
