@@ -6,7 +6,9 @@
   top: 125px;
   font-size: 16px;
   line-height: 1.25;
+
   background-color: var(--color-dropdown);
+  transition: 350ms ease;
 
   opacity: 0;
   visibility: hidden;
@@ -16,6 +18,22 @@
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+  }
+
+  @include breakpointsMaxW($bp-991) {
+    &.active {
+      opacity: 1;
+    }
+
+    overflow: auto;
+
+    background-color: transparent;
+
+    position: static;
+    max-height: 0;
+    overflow: hidden;
+    will-change: max-height;
+    opacity: 0;
   }
 
   &__container {
@@ -33,14 +51,53 @@
     height: 100%;
     border-right: 1px solid rgba(255, 255, 255, 0.1);
     padding-bottom: 52px;
+
+    @include breakpointsMaxW($bp-991) {
+      padding-left: 0;
+      padding-bottom: 10px;
+    }
   }
 
   &__item {
     padding: 12px 32px;
     text-transform: uppercase;
 
+    @include breakpointsMaxW($bp-991) {
+      padding-left: 5px;
+    }
+
     &--active {
       background-color: var(--color-accent);
+    }
+  }
+
+  .submenu {
+    padding-top: 20px;
+    padding-left: 32px;
+    padding-bottom: 52px;
+
+    &__item {
+      font-size: 16px;
+      line-height: 19px;
+
+      color: rgba(255, 255, 255, 0.6);
+      transition: 150ms ease;
+
+      &:hover {
+        color: rgba(255, 255, 255, 1);
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+    }
+
+    &__list {
+      display: none;
+
+      &.active {
+        display: block;
+      }
     }
   }
 }
@@ -61,6 +118,26 @@
   background-color: var(--color-dropdown);
   transition: 350ms ease;
 
+  @include breakpointsMaxW($bp-991) {
+    margin-top: 10px;
+  }
+
+  @include breakpointsMaxW($bp-991) {
+    max-width: 280px;
+  }
+
+  @include breakpointsMaxW($bp-991) {
+    &.active {
+      opacity: 1;
+    }
+
+    position: static;
+    max-height: 0;
+    overflow: hidden;
+    will-change: max-height;
+    opacity: 0;
+  }
+
   &.active {
     opacity: 1;
     visibility: visible;
@@ -71,6 +148,12 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+
+    @include breakpointsMaxW($bp-991) {
+      grid-template-columns: 1fr;
+      height: 150px;
+      overflow-y: auto;
+    }
   }
 
   &__item {
@@ -84,6 +167,11 @@
     border-right: 1px solid rgba(255, 255, 255, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     transition: 150ms ease;
+
+    @include breakpointsMaxW($bp-991) {
+      padding: 10px;
+      height: auto;
+    }
 
     &:hover {
       background-color: var(--color-accent);
@@ -103,6 +191,13 @@
       height: 34px;
       top: 30px;
       right: 30px;
+
+      @include breakpointsMaxW($bp-991) {
+        top: 10px;
+        right: 10px;
+        width: 20px;
+        height: 20px;
+      }
     }
 
     &--saw {
@@ -138,43 +233,18 @@
     font-size: 20px;
     line-height: 23px;
     margin-bottom: 25px;
+
+    @include breakpointsMaxW($bp-991) {
+      font-size: 16px;
+      height: 20px;
+    }
   }
 
   &__text {
     max-width: 186px;
-  }
-}
 
-.submenu {
-  padding-top: 20px;
-  padding-left: 32px;
-  padding-bottom: 52px;
-
-  &__item {
-    font-size: 16px;
-    line-height: 19px;
-
-    color: rgba(255, 255, 255, 0.6);
-    transition: 150ms ease;
-
-    &:hover {
-      color: rgba(255, 255, 255, 1);
-    }
-
-    &:not(:last-child) {
-      margin-bottom: 20px;
+    @include breakpointsMaxW($bp-991) {
+      // display: none;
     }
   }
-
-  &__list {
-    display: none;
-
-    &.active {
-      display: block;
-    }
-  }
-
-  &__item {}
-
-  &__link {}
 }

@@ -1,0 +1,208 @@
+.single-showroom {
+  font-size: 18px;
+  line-height: 1.5;
+
+  @include breakpointsMaxW($bp-768) {
+    font-size: 14px;
+  }
+
+  &__title {
+    font-size: 48px;
+    line-height: 56px;
+    margin-bottom: 24px;
+  }
+
+  &__top {
+    display: grid;
+    grid-template-columns: 1fr minmax(auto, 578px);
+    gap: 290px;
+
+    margin-bottom: 169px;
+
+    @include breakpointsMaxW($bp-container) {
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+
+      margin-bottom: calc(80px + (169 - 80) * ((100vw - 320px) / (1225 - 320)));
+    }
+
+    @include breakpointsMaxW($bp-768) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__text {
+    margin-bottom: 48px;
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__link {
+    padding-left: 30px;
+    position: relative;
+
+    &::after {
+      @include pseudoElDefault();
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      width: 18px;
+      height: 18px;
+      background-color: var(--color-dark);
+    }
+
+    &--tel {
+      margin-bottom: 18px;
+
+      &::after {
+        @include maskImage(url('../images/sprite.svg#phone-icon'), cover);
+      }
+    }
+
+    &--location {
+      &::after {
+        @include maskImage(url('../images/sprite.svg#map'), cover);
+      }
+    }
+  }
+
+  &__map {
+    width: 100%;
+    height: 305px;
+
+    iframe {
+      width: 100%;
+    }
+  }
+
+  &__slider {
+    margin-bottom: 275px;
+
+    @include breakpointsMaxW($bp-container) {
+      margin-bottom: calc(80px + (275 - 80) * ((100vw - 320px) / (1225 - 320)));
+    }
+  }
+
+
+  &__bottom {
+    margin-bottom: 270px;
+  }
+
+  .single-product__slider {
+    position: relative;
+  }
+
+  .slider-thumbs {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 820px;
+    min-width: 0;
+    position: relative;
+    border: 0;
+
+    @include breakpointsMaxW($bp-container) {
+      height: calc(300px + (820 - 300) * ((100vw - 320px) / (1225 - 320)));
+    }
+
+    &__main {
+      max-width: 100%;
+      height: 710px;
+      overflow: hidden;
+      margin-bottom: 53px;
+
+      @include breakpointsMaxW($bp-991) {
+        height: calc(200px + (710 - 200) * ((100vw - 320px) / (1225 - 320)));
+        margin-bottom: calc(24px + (53 - 24) * ((100vw - 320px) / (1225 - 320)));
+      }
+
+      .swiper-slide {
+        width: 100%;
+        height: 100%;
+
+        img {
+          @include img(cover);
+        }
+      }
+    }
+
+    .arrow-next,
+    .arrow-prev {
+      position: absolute;
+      width: 54px;
+      height: 54px;
+
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 50%;
+      border: 1px solid rgb(233, 229, 229);
+
+      &::after {
+        @include pseudoElDefault();
+        top: 50%;
+        left: 50%;
+        width: 24px;
+        height: 24px;
+        transform: translate(-50%, -50%);
+      }
+
+      @include breakpointsMaxW(1600px) {
+        display: none;
+      }
+    }
+
+    .arrow-next {
+      right: -70px;
+
+      &::after {
+        @include maskImage(url('../images/icons/chevron-right.svg'), 24px);
+        background-color: var(--color-dark);
+      }
+    }
+
+    .arrow-prev {
+      left: -70px;
+
+      &::after {
+        @include maskImage(url('../images/icons/chevron-left.svg'), 24px);
+        background-color: var(--color-dark);
+      }
+    }
+
+    &__nav {
+      width: 440px;
+      min-width: 0;
+      overflow: hidden;
+      height: 54px;
+      margin: 0 auto;
+
+      @include breakpointsMaxW($bp-991) {
+        height: calc(44px + (54 - 44) * ((100vw - 320px) / (1225 - 320)));
+      }
+
+      @include breakpointsMaxW($bp-576) {
+        width: 100%;
+      }
+
+      .slider-nav__slide {
+        max-width: 101px;
+        height: 100%;
+        transition: 150ms;
+
+        img {
+          @include img(cover);
+        }
+
+        opacity: 0.3;
+      }
+
+      .swiper-slide-thumb-active {
+        opacity: 1;
+      }
+    }
+  }
+}

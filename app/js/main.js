@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
-
-  // ! Slider Production
+  console.log(window.innerWidth)
+  // * ==== Slider Production
   const sliderGroup = () => {
     const x = document.getElementsByClassName('slider');
     for (let i = 0; i < x.length; i++) {
@@ -38,7 +38,7 @@ window.addEventListener('DOMContentLoaded', () => {
   };
   sliderGroup();
 
-  // ! Stock Slider
+  // * ==== Stock Slider
   (function sliderStock(parent) {
     const parentEl = document.querySelector(parent);
     if (parentEl) {
@@ -70,7 +70,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   })('.stock-slider');
 
-  // ! Recommendations
+  // * ==== Recommendations
   (function sliderRecommendations() {
     const parentEl = document.querySelector('.reccomentations');
     if (parentEl) {
@@ -102,7 +102,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   })();
 
-  // ! Best Offers Arrow Top
+  // * ==== Best Offers Arrow Top
   (function sliderRecommendations(parent) {
     const parentEl = document.querySelector(parent);
     if (parentEl) {
@@ -135,7 +135,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   })('.best-offers');
 
-  // ! Partners 
+  // * ==== Partners 
   (function sliderPartners() {
     const parentEl = document.querySelector('.partners');
     if (parentEl) {
@@ -167,8 +167,8 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   })();
 
-  // !
-  (function verticalSlider2() {
+  // * ==== Single Product
+  (function verticalSlider1() {
     let mySwiperNav = new Swiper('#product-nav', {
       slidesPerView: 3.2,
       spaceBetween: 12,
@@ -187,7 +187,8 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }());
 
-  (function verticalSlider1() {
+  // * ==== Single Showroom
+  (function verticalSlider2() {
     const arrowNext = document.querySelector('.arrow-next');
     const arrowPrev = document.querySelector('.arrow-prev');
 
@@ -213,136 +214,83 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }());
 
-  // const menuSearchBox = document.querySelector('.menu-search');
-  // const menuSearchToggle = document.querySelector('.header__search');
+  (function showMenu() {
+    if (window.innerWidth < 991) {
+      const menuBtn = document.querySelector('.header__toggle');
+      const menu = document.querySelector('.header__menu');
+      const body = document.querySelector('body');
 
-  // menuSearchToggle.addEventListener('click', e => {
-  //   menuSearchBox.classList.add('active');
-  // });
+      menuBtn.addEventListener('click', e => {
+        menu.classList.toggle('active');
+        body.classList.toggle('no-scroll');
+      });
+    }
+  }());
 
-  // const modals = () => {
-  //   function bindModal(openBtn, modal, close) {
-  //     const openBtnEl = document.querySelector(openBtn);
-  //     const modalEl = document.querySelector(modal);
-  //     const closeEl = document.querySelectorAll(close);
-  //     const body = document.querySelector('body');
+  (function modalsWithBtnClose() {
+    function bindModal(openBtn, modal, close) {
+      const openBtnEl = document.querySelector(openBtn);
+      const modalEl = document.querySelector(modal);
+      const closeEl = document.querySelectorAll(close);
+      const body = document.querySelector('body');
 
-  //     if (modalEl) {
-  //       openBtnEl.addEventListener('click', e => {
-  //         if (e.target) {
-  //           e.preventDefault()
-  //         }
+      if (modalEl) {
+        openBtnEl.addEventListener('click', e => {
+          if (e.target) {
+            e.preventDefault()
+          }
 
-  //         modalEl.classList.add('active');
-  //         // body.classList.add('no-scroll');
-  //       });
+          modalEl.classList.add('active');
+          // body.classList.add('no-scroll');
+        });
 
-  //       closeEl.forEach(el => {
-  //         el.addEventListener('click', e => {
-  //           modalEl.classList.remove('active');
-  //           // body.classList.remove('no-scroll');
-  //         })
-  //       });
+        closeEl.forEach(el => {
+          el.addEventListener('click', e => {
+            modalEl.classList.remove('active');
+            // body.classList.remove('no-scroll');
+          })
+        });
 
-  //       modalEl.addEventListener('click', e => {
-  //         console.log(e.target)
-  //         if (e.target === modalEl) {
-  //           modalEl.classList.remove('active');
-  //           // body.classList.remove('no-scroll');
-  //         }
-  //       })
-  //     };
-  //   };
+        modalEl.addEventListener('click', e => {
+          console.log(e.target)
+          if (e.target === modalEl) {
+            modalEl.classList.remove('active');
+            // body.classList.remove('no-scroll');
+          }
+        })
+      };
+    };
 
-  //   bindModal('.header__search', '.menu-search', '.menu-search__close');
-  //   // bindModal('.header__search', '.main-menu__link--services', '.menu-search__close');
-  //   // bindModal('.contacts__title', '.popup--form', '.popup__close');
-  // };
-  // modals();
+    bindModal('.header__search', '.menu-search', '.menu-search__close');
+  }());
 
-  // function showDropdown(openBtn, modal) {
-  //   const openBtnEl = document.querySelector(openBtn);
-  //   const modalEl = document.querySelector(modal);
-  //   const body = document.querySelector('body');
-  //   const overlay = document.querySelector('.overlay');
-  //   const header = document.querySelector('.header');
-  //   const mainMenu = document.querySelector('.main-menu');
+  function showDropdown(openBtn, modal) {
+    const openBtnEl = document.querySelector(openBtn);
+    const modalEl = document.querySelector(modal);
+    const overlayEl = document.querySelector('.overlay');
+    const bodyEl = document.querySelector('body');
 
-  //   if (modalEl) {
-  //     openBtnEl.addEventListener('click', e => {
-  //       if (e.target) {
-  //         e.preventDefault()
-  //       }
+    if (modalEl) {
+      openBtnEl.addEventListener('click', e => {
+        if (e.target) {
+          e.preventDefault()
+        }
 
-  //       modalEl.classList.toggle('active');
-  //       overlay.classList.toggle('active');
-  //     });
+        modalEl.classList.toggle('active');
+        overlayEl.classList.toggle('active');
+        bodyEl.classList.toggle('no-scroll');
+      });
 
-  //     overlay.addEventListener('click', e => {
-  //       overlay.classList.remove('active');
-  //       modalEl.classList.remove('active');
-  //     });
-  //   };
-  // };
+      overlayEl.addEventListener('click', e => {
+        overlayEl.classList.remove('active');
+        modalEl.classList.remove('active');
+        bodyEl.classList.remove('no-scroll');
+      });
+    };
+  };
 
-  // showDropdown('.main-menu__link--services', '.dropdown-services');
-  // showDropdown('.main-menu__link--catalog', '.dropdown-catalog');
-
-  // Tab
-  // function tabsProducts(
-  //   headerSelector,
-  //   tabSelector,
-  //   contentSelector,
-  //   activeClass
-  // ) {
-  //   const header = document.querySelectorAll(headerSelector);
-  //   const tab = document.querySelectorAll(tabSelector);
-  //   const content = document.querySelectorAll(contentSelector);
-
-  //   if (content && header && tab) {
-
-  //     hideTabContent();
-  //     showTabContent();
-
-  //     function hideTabContent() {
-  //       content.forEach((item) => {
-  //         item.classList.remove('active');
-  //       });
-  //       tab.forEach((item) => {
-  //         item.classList.remove(activeClass);
-  //       });
-  //     }
-
-  //     function showTabContent(i = 0) {
-  //       content[i].classList.add('active');
-  //       tab[i].classList.add(activeClass);
-  //     }
-
-  //     header.forEach((item) => {
-  //       item.addEventListener('click', (e) => {
-  //         const target = e.target;
-  //         if (
-  //           target.classList.contains(tabSelector.replace(/\./, '')) ||
-  //           target.classList.parentNode.contains(tabSelector.replace(/\./, ''))
-  //         ) {
-  //           tab.forEach((item, i) => {
-  //             if (target == item || target.parentNode == item) {
-  //               hideTabContent();
-  //               showTabContent(i);
-  //             }
-  //           });
-  //         }
-  //       });
-  //     });
-  //   }
-  // };
-
-  // tabsProducts(
-  //   '.main-menu__dropdown',
-  //   '.dropdown-catalog__item',
-  //   '.submenu__list',
-  //   'dropdown-catalog__item--active'
-  // );
+  showDropdown('.main-menu__link--services', '.dropdown-services');
+  showDropdown('.main-menu__link--catalog', '.dropdown-catalog');
 
 
   const toggleAccordion = (accordion, accordionContent) => {
@@ -363,13 +311,13 @@ window.addEventListener('DOMContentLoaded', () => {
       });
     });
   };
-  // ! This needs Change
-  // toggleFullSidebox('.main-menu__item', '.filter-box__drop');
   toggleAccordion('.accordion__control', '.accordion__content');
   toggleAccordion('.review__top', '.review__content');
+  toggleAccordion('.main-menu__link--services', '.dropdown-services');
+  toggleAccordion('.main-menu__link--catalog', '.dropdown-catalog');
 
-  // !
-  (function tabsSlider(
+  // * ==== ToggleTabs
+  function tabsSlider(
     headerSelector,
     tabSelector,
     contentSelector,
@@ -415,43 +363,18 @@ window.addEventListener('DOMContentLoaded', () => {
           });
         }
       });
-      // }
     })
-  }(
+  };
+  tabsSlider(
     '.productions__wrapper',
     '.productions__button',
     '.slider',
     'productions__button--active'
-  ));
+  );
+  tabsSlider(
+    '.dropdown-catalog__container',
+    '.dropdown-catalog__item',
+    '.submenu__list ',
+    'dropdown-catalog__item--active'
+  );
 });
-
-// const showMenu = () => {
-//   const menuBtn = document.querySelector('.toggle-menu');
-//   const menu = document.querySelector('.header__bottom');
-//   const body = document.querySelector('body');
-//   // const overlay = document.querySelector('.overlay');
-//   const closeBtn = document.querySelector('.header__bottom-close');
-
-//   menuBtn.addEventListener('click', e => {
-//     menu.classList.toggle('active');
-//     // menuBtn.classList.toggle('active');
-//     // overlay.classList.toggle('active');
-//     body.classList.toggle('no-scroll');
-//   });
-
-//   // overlay.addEventListener('click', e => {
-//   // menu.classList.remove('active');
-//   // menuBtn.classList.remove('active');
-//   // overlay.classList.remove('active');
-//   // body.classList.remove('no-scroll');
-//   // });
-//   closeBtn.addEventListener('click', e => {
-//     menu.classList.remove('active');
-//     menuBtn.classList.remove('active');
-//     // overlay.classList.remove('active');
-//     body.classList.remove('no-scroll');
-//   });
-// };
-// showMenu();
-
-// console.log(document.querySelectorAll('.slider-arrow-top__slider'))

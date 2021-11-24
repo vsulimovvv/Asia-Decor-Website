@@ -9,39 +9,9 @@
       @include breakpointsMaxW($bp-container) {
         margin-right: 18px;
       }
-    }
 
-    // overflow: hidden;
-
-    &.active {
-      .filter-box__drop {
-        opacity: 1;
-        max-height: 100px;
-      }
-    }
-
-    .filter-box__drop {
-      // display: none;
-
-      max-height: 0;
-      overflow: hidden;
-      will-change: max-height;
-      opacity: 0;
-    }
-
-    .filter-box__item {
-      &.active {
-        ul {
-          opacity: 1;
-          max-height: 100px;
-        }
-      }
-
-      ul {
-        max-height: 0;
-        overflow: hidden;
-        will-change: max-height;
-        opacity: 0;
+      @include breakpointsMaxW($bp-991) {
+        margin-right: 0;
       }
     }
   }
@@ -50,9 +20,41 @@
     display: block;
     font-size: 18px;
     line-height: 21px;
-    position: relative;
+    padding: 1px;
+
     transition: 250ms ease;
 
     @include linkHover();
+
+    &--services,
+    &--catalog {
+      padding-right: 21px;
+
+      &:hover {
+        &::after {
+          background-color: var(--color-accent);
+        }
+      }
+
+      &::after {
+        @include afterChevron();
+      }
+    }
+
+    &--services {
+      &.active {
+        .dropdown-services {
+          opacity: 1;
+        }
+      }
+    }
+
+    &--catalog {
+      &.active {
+        .dropdown-catalog {
+          opacity: 1;
+        }
+      }
+    }
   }
 }

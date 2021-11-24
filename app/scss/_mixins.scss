@@ -104,6 +104,12 @@
       transform: scaleX(1);
     }
   }
+
+  @include breakpointsMaxW($bp-991) {
+    &::before {
+      display: none;
+    }
+  }
 }
 
 @mixin btnFocusActive {
@@ -134,4 +140,17 @@
   &:active {
     background-color: #f0f0f0;
   }
+}
+
+@mixin afterChevron {
+  // @include pseudoElDefault();
+  position: absolute;
+  content: '';
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  width: 18px;
+  height: 18px;
+  @include maskImage(url('../images/sprite.svg#chevron-bottom'), contain);
+  background-color: var(--color-white);
 }
