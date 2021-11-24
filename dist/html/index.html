@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  @include('./components/base/_meta.html')
+  @include('./components/base/_links.html')
+
+  <title>Asia Decor</title>
+</head>
+
+<body>
+  <div class="overlay"></div>
+  <div class="site-wrapper">
+    @include('./components/_header.html')
+    <main class="main">
+      @include('./components/_hero.html')
+      @include('./components/_productions.html')
+      @include('./components/_services.html')
+      @include('./components/_advantages.html')
+      @include('./components/_about-section.html')
+      @include('./components/_best-offers.html')
+      @include('./components/_equipment.html')
+      @include('./components/_partners-slider.html')
+    </main>
+    @include('./components/_footer.html')
+  </div>
+
+  @include('./components/base/_scripts.html')
+</body>
+
+</html>

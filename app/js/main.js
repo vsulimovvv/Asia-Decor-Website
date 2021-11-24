@@ -1,5 +1,4 @@
 window.addEventListener('DOMContentLoaded', () => {
-  console.log(window.innerWidth)
   // * ==== Slider Production
   const sliderGroup = () => {
     const x = document.getElementsByClassName('slider');
@@ -214,6 +213,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }());
 
+  // * ==== Show menu
   (function showMenu() {
     if (window.innerWidth < 991) {
       const menuBtn = document.querySelector('.header__toggle');
@@ -227,6 +227,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }());
 
+  // * ==== Modal With Button Close
   (function modalsWithBtnClose() {
     function bindModal(openBtn, modal, close) {
       const openBtnEl = document.querySelector(openBtn);
@@ -241,45 +242,55 @@ window.addEventListener('DOMContentLoaded', () => {
           }
 
           modalEl.classList.add('active');
-          // body.classList.add('no-scroll');
+          body.classList.add('no-scroll');
         });
 
         closeEl.forEach(el => {
           el.addEventListener('click', e => {
             modalEl.classList.remove('active');
-            // body.classList.remove('no-scroll');
-          })
+            body.classList.remove('no-scroll');
+          });
         });
 
         modalEl.addEventListener('click', e => {
           console.log(e.target)
           if (e.target === modalEl) {
             modalEl.classList.remove('active');
-            // body.classList.remove('no-scroll');
+            body.classList.remove('no-scroll');
           }
-        })
+        });
       };
     };
 
     bindModal('.header__search', '.menu-search', '.menu-search__close');
   }());
 
+
+  // * ==== Modal Without Button Close
   function showDropdown(openBtn, modal) {
     const openBtnEl = document.querySelector(openBtn);
     const modalEl = document.querySelector(modal);
     const overlayEl = document.querySelector('.overlay');
     const bodyEl = document.querySelector('body');
+    const mainMenuLink = document.querySelectorAll('.main-menu__link');
 
     if (modalEl) {
       openBtnEl.addEventListener('click', e => {
         if (e.target) {
           e.preventDefault()
         }
-
-        modalEl.classList.toggle('active');
-        overlayEl.classList.toggle('active');
-        bodyEl.classList.toggle('no-scroll');
+        modalEl.classList.add('active');
+        overlayEl.classList.add('active');
+        bodyEl.classList.add('no-scroll');
       });
+
+      // mainMenuLink.forEach(el => {
+      //   el.addEventListener('click', e => {
+      //     modalEl.classList.remove('active');
+      //     overlayEl.classList.remove('active');
+      //     bodyEl.classList.remove('no-scroll');
+      //   });
+      // });
 
       overlayEl.addEventListener('click', e => {
         overlayEl.classList.remove('active');
@@ -288,11 +299,10 @@ window.addEventListener('DOMContentLoaded', () => {
       });
     };
   };
-
   showDropdown('.main-menu__link--services', '.dropdown-services');
   showDropdown('.main-menu__link--catalog', '.dropdown-catalog');
 
-
+  // * ==== Accordion
   const toggleAccordion = (accordion, accordionContent) => {
     const filters = document.querySelectorAll(accordion);
 
@@ -316,7 +326,7 @@ window.addEventListener('DOMContentLoaded', () => {
   toggleAccordion('.main-menu__link--services', '.dropdown-services');
   toggleAccordion('.main-menu__link--catalog', '.dropdown-catalog');
 
-  // * ==== ToggleTabs
+  // * ==== Toggle Tabs
   function tabsSlider(
     headerSelector,
     tabSelector,
