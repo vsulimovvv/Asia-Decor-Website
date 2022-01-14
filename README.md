@@ -2,6 +2,7 @@
 В данной проекте реализована адаптивная, кросбрааузерная верстка корпоротивного сайта Asia Decor.
 Github pages:
     Главая страница: https://vsulimovvv.github.io/Asia-Decor-Website/dist/index.html
+    ***
     Каталог: https://vsulimovvv.github.io/Asia-Decor-Website/dist/catalog.html
 Продукт: https://vsulimovvv.github.io/Asia-Decor-Website/dist/catalog-single.html
 Распиловка (страница услуги): https://vsulimovvv.github.io/Asia-Decor-Website/dist/saw.html
