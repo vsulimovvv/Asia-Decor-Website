@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
   // * ==== Slider Production
-  const sliderGroup = () => {
+  (function sliderGroup() {
     const x = document.getElementsByClassName('slider');
     for (let i = 0; i < x.length; i++) {
       const el = x[i];
@@ -34,8 +34,7 @@ window.addEventListener('DOMContentLoaded', () => {
         },
       });
     }
-  };
-  sliderGroup();
+  }());
 
   // * ==== Stock Slider
   (function sliderStock(parent) {
@@ -303,7 +302,7 @@ window.addEventListener('DOMContentLoaded', () => {
   showDropdown('.main-menu__link--catalog', '.dropdown-catalog');
 
   // * ==== Accordion
-  const toggleAccordion = (accordion, accordionContent) => {
+  function toggleAccordion(accordion, accordionContent) {
     const filters = document.querySelectorAll(accordion);
 
     filters.forEach(el => {
